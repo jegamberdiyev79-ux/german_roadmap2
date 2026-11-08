@@ -278,7 +278,7 @@
             { id: 42, name: "Nebensätze", detail: "Weil, dass und wenn" },
             { id: 43, name: "Positionsadverbien und Direktionaladverbien", detail: "Ich bin da. Kommst du auch dahin?" },
             { id: 44, name: "Partikeln", detail: "Was heißt das denn?" },
-            { id: 45, name: "Komposita", detail: "Kinderarzt or Arztkinder?" },
+            { id: 45, name: "Komposita", detail: "Kinderarzt oder Arztkinder?" },
             { id: 46, name: "Aus Wörtern neue Wörter machen", detail: "-chen, -lein, -er, -in, -ung" },
             { id: 47, name: "Zusammengesetzte Verben", detail: "Ich bin dann mal weg" },
             { id: 48, name: "Genusregeln", detail: "Der, die oder das?" },
@@ -326,8 +326,8 @@
 
         let appState = {
             completedTopics: [],
-            topicTimers: {}, // Har bir mavzu uchun alohida vaqt saqlagich
-            homeworkSentMap: {} // Har bir mavzu uchun homework holati
+            topicTimers: {}, 
+            homeworkSentMap: {}
         };
 
         let currentActiveTopic = null;
@@ -418,7 +418,6 @@
         function openTopicModal(topic) {
             currentActiveTopic = topic;
             
-            // Agar bu mavzu uchun homework yuborilgani saqlanmagan bo'lsa, false qilamiz
             if (appState.homeworkSentMap[topic.id] === undefined) {
                 appState.homeworkSentMap[topic.id] = false;
             }
@@ -442,7 +441,6 @@
                 statusBadge.className = 'text-xs px-2.5 py-1 rounded-md font-semibold bg-neon/20 text-neon border border-neon/30';
                 completeBtn.classList.remove('hidden');
                 
-                // Homework oldin yuborilgan bo'lsa tugmani ochiq qilamiz
                 if (appState.homeworkSentMap[topic.id]) {
                     completeBtn.disabled = false;
                     completeBtn.className = 'w-full py-3 bg-emerald-500 hover:bg-emerald-600 text-white font-bold rounded-xl shadow-lg transition active:scale-[0.98] flex items-center justify-center space-x-2';
@@ -490,11 +488,13 @@
             }
         }
 
-        // Har bir mavzuning o'z vaqtini alohida hisoblash va saqlash
+        // TAYMER XATOSI SHU YERDA TUZATILDI: 
         function startTopicTimer(topicId) {
             if (timerInterval) clearInterval(timerInterval);
             const totalSeconds = 30 * 60;
 
+            // Agar ilgari ushbu mavzu uchun taymer boshlanmagan bo'lsagina yangi vaqt olinadi.
+            // Boshlangan bo'lsa, mavzular orasida o'tib qaytganda reset bo'lmaydi!
             if (!appState.topicTimers[topicId]) {
                 appState.topicTimers[topicId] = Date.now();
                 saveStateToStorage();
