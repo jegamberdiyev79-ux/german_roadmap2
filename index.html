@@ -73,7 +73,7 @@
         </div>
         <div class="flex items-center space-x-2">
             <button onclick="resetProgressConfirm()" class="text-xs bg-darkbg-800 hover:bg-darkbg-700 text-gray-400 px-2.5 py-1.5 rounded-lg transition border border-darkbg-700">
-                <i class="fa-solid fa-rotate-left mr-1"></i>Reset
+                <i class="fa-solid font-xs fa-rotate-left mr-1"></i>Reset
             </button>
         </div>
     </header>
@@ -233,7 +233,6 @@
             } catch (e) {}
         }
 
-        // Kitob mundarijasi bo'yicha 100% aniq 80 ta mavzu
         const RAW_TOPICS = [
             { id: 1, name: "Personalpronomen", detail: "Ich, du, er, sie, es, wir, ihr sie und Sie" },
             { id: 2, name: "Konjugation Präsens", detail: "Ich komme, du kommst" },
@@ -279,7 +278,7 @@
             { id: 42, name: "Nebensätze", detail: "Weil, dass und wenn" },
             { id: 43, name: "Positionsadverbien und Direktionaladverbien", detail: "Ich bin da. Kommst du auch dahin?" },
             { id: 44, name: "Partikeln", detail: "Was heißt das denn?" },
-            { id: 45, name: "Komposita", detail: "Kinderarzt oder Arztkinder?" },
+            { id: 45, name: "Komposita", detail: "Kinderarzt or Arztkinder?" },
             { id: 46, name: "Aus Wörtern neue Wörter machen", detail: "-chen, -lein, -er, -in, -ung" },
             { id: 47, name: "Zusammengesetzte Verben", detail: "Ich bin dann mal weg" },
             { id: 48, name: "Genusregeln", detail: "Der, die oder das?" },
@@ -327,9 +326,8 @@
 
         let appState = {
             completedTopics: [],
-            activeTopicId: 1,
-            timerStartTime: null,
-            homeworkSent: false
+            topicTimers: {}, // Har bir mavzu uchun alohida vaqt saqlagich
+            homeworkSentMap: {} // Har bir mavzu uchun homework holati
         };
 
         let currentActiveTopic = null;
@@ -419,7 +417,11 @@
 
         function openTopicModal(topic) {
             currentActiveTopic = topic;
-            appState.homeworkSent = false;
+            
+            // Agar bu mavzu uchun homework yuborilgani saqlanmagan bo'lsa, false qilamiz
+            if (appState.homeworkSentMap[topic.id] === undefined) {
+                appState.homeworkSentMap[topic.id] = false;
+            }
             
             document.getElementById('modal-topic-num').innerText = `Topic ${topic.id}`;
             document.getElementById('modal-title').innerText = topic.name;
@@ -439,14 +441,21 @@
                 statusBadge.innerText = 'In Progress';
                 statusBadge.className = 'text-xs px-2.5 py-1 rounded-md font-semibold bg-neon/20 text-neon border border-neon/30';
                 completeBtn.classList.remove('hidden');
-                completeBtn.disabled = true;
-                completeBtn.className = 'w-full py-3 bg-darkbg-700 text-gray-400 font-bold rounded-xl transition active:scale-[0.98] flex items-center justify-center space-x-2 cursor-not-allowed';
+                
+                // Homework oldin yuborilgan bo'lsa tugmani ochiq qilamiz
+                if (appState.homeworkSentMap[topic.id]) {
+                    completeBtn.disabled = false;
+                    completeBtn.className = 'w-full py-3 bg-emerald-500 hover:bg-emerald-600 text-white font-bold rounded-xl shadow-lg transition active:scale-[0.98] flex items-center justify-center space-x-2';
+                } else {
+                    completeBtn.disabled = true;
+                    completeBtn.className = 'w-full py-3 bg-darkbg-700 text-gray-400 font-bold rounded-xl transition active:scale-[0.98] flex items-center justify-center space-x-2 cursor-not-allowed';
+                }
             }
 
             document.getElementById('btn-prev-topic').disabled = topic.id === 1;
             document.getElementById('btn-next-topic').disabled = topic.id === 80;
 
-            start30MinTimer(topic.id);
+            startTopicTimer(topic.id);
 
             const modal = document.getElementById('topic-modal');
             const content = document.getElementById('modal-content');
@@ -472,6 +481,7 @@
             if (targetId >= 1 && targetId <= 80) {
                 const isUnlocked = targetId === 1 || appState.completedTopics.includes(targetId - 1);
                 if (isUnlocked) {
+                    if (timerInterval) clearInterval(timerInterval);
                     const targetTopic = RAW_TOPICS.find(t => t.id === targetId);
                     openTopicModal(targetTopic);
                 } else {
@@ -480,18 +490,19 @@
             }
         }
 
-        function start30MinTimer(topicId) {
+        // Har bir mavzuning o'z vaqtini alohida hisoblash va saqlash
+        function startTopicTimer(topicId) {
             if (timerInterval) clearInterval(timerInterval);
             const totalSeconds = 30 * 60;
 
-            if (!appState.timerStartTime || appState.activeTopicId !== topicId) {
-                appState.timerStartTime = Date.now();
-                appState.activeTopicId = topicId;
+            if (!appState.topicTimers[topicId]) {
+                appState.topicTimers[topicId] = Date.now();
                 saveStateToStorage();
             }
 
             function updateTimerDisplay() {
-                const elapsedSeconds = Math.floor((Date.now() - appState.timerStartTime) / 1000);
+                const startTime = appState.topicTimers[topicId];
+                const elapsedSeconds = Math.floor((Date.now() - startTime) / 1000);
                 const remainingSeconds = totalSeconds - elapsedSeconds;
 
                 if (remainingSeconds <= 0) {
@@ -500,7 +511,7 @@
                     const bar = document.getElementById('timer-progress-bar');
                     if (display) display.innerText = "00:00";
                     if (bar) bar.style.width = "0%";
-                    triggerPenaltyDrill();
+                    triggerPenaltyDrill(topicId);
                     return;
                 }
 
@@ -524,7 +535,9 @@
             if (!currentActiveTopic) return;
             window.open(GOOGLE_FORM_URL, '_blank');
             
-            appState.homeworkSent = true;
+            appState.homeworkSentMap[currentActiveTopic.id] = true;
+            saveStateToStorage();
+
             const completeBtn = document.getElementById('btn-complete');
             if (completeBtn) {
                 completeBtn.disabled = false;
@@ -537,15 +550,15 @@
         function markTopicComplete() {
             if (!currentActiveTopic) return;
             
-            if (!appState.homeworkSent) {
+            if (!appState.homeworkSentMap[currentActiveTopic.id]) {
                 showToast("Avval 'Send homework' tugmasini bosib vazifani yuboring!");
                 return;
             }
 
             if (!appState.completedTopics.includes(currentActiveTopic.id)) {
                 appState.completedTopics.push(currentActiveTopic.id);
-                appState.timerStartTime = null;
-                appState.homeworkSent = false;
+                delete appState.topicTimers[currentActiveTopic.id];
+                appState.homeworkSentMap[currentActiveTopic.id] = false;
                 saveStateToStorage();
                 renderRoadmap();
                 updateProgressOverview();
@@ -554,7 +567,7 @@
             }
         }
 
-        function triggerPenaltyDrill() {
+        function triggerPenaltyDrill(topicId) {
             closeTopicModal();
             penaltyStepIndex = 0;
             const penaltyModal = document.getElementById('penalty-modal');
@@ -586,8 +599,12 @@
                 if (penaltyStepIndex >= PENALTY_DRILL_VOCAB.length) {
                     const penaltyModal = document.getElementById('penalty-modal');
                     if (penaltyModal) penaltyModal.classList.add('hidden');
-                    appState.timerStartTime = Date.now();
-                    saveStateToStorage();
+                    
+                    if (currentActiveTopic) {
+                        appState.topicTimers[currentActiveTopic.id] = Date.now();
+                        saveStateToStorage();
+                        startTopicTimer(currentActiveTopic.id);
+                    }
                     showToast("Penalty bajarildi! Taymer tiklandi.");
                 } else {
                     renderPenaltyCard();
@@ -626,9 +643,8 @@
             if (confirm("Progressni qaytadan 0% qilmoqchimisiz?")) {
                 appState = {
                     completedTopics: [],
-                    activeTopicId: 1,
-                    timerStartTime: null,
-                    homeworkSent: false
+                    topicTimers: {},
+                    homeworkSentMap: {}
                 };
                 saveStateToStorage();
                 renderRoadmap();
