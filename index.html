@@ -68,7 +68,7 @@
             </div>
             <div>
                 <h1 class="text-sm font-bold text-white tracking-wide">German Roadmap</h1>
-                <p class="text-[10px] text-gray-400">Grammatik Aktiv A1 - B1</p>
+                <p id="header-subtitle" class="text-[10px] text-gray-400">Grammatik Aktiv A1 - B1</p>
             </div>
         </div>
         <div class="flex items-center space-x-2">
@@ -79,38 +79,80 @@
     </header>
 
     <!-- Main Container -->
-    <main class="flex-1 px-4 py-4 space-y-4 overflow-y-auto">
+    <main class="flex-1 px-4 py-4 space-y-4 overflow-y-auto pb-20">
 
-        <!-- Progress Overview Widget -->
-        <div class="bg-darkbg-800 rounded-2xl p-4 border border-darkbg-700 relative overflow-hidden">
-            <div class="flex items-center justify-between relative z-10">
-                <div>
-                    <span class="text-xs font-semibold uppercase tracking-wider text-neon">Overall Progress</span>
-                    <h2 id="progress-percent" class="text-3xl font-extrabold text-white glow-text mt-0.5">0%</h2>
-                    <p id="progress-subtitle" class="text-xs text-gray-400 mt-1">0 of 80 topics completed</p>
+        <!-- GRAMMAR VIEW -->
+        <div id="view-grammar" class="space-y-4">
+            <!-- Progress Overview Widget -->
+            <div class="bg-darkbg-800 rounded-2xl p-4 border border-darkbg-700 relative overflow-hidden">
+                <div class="flex items-center justify-between relative z-10">
+                    <div>
+                        <span class="text-xs font-semibold uppercase tracking-wider text-neon">Overall Progress</span>
+                        <h2 id="progress-percent" class="text-3xl font-extrabold text-white glow-text mt-0.5">0%</h2>
+                        <p id="progress-subtitle" class="text-xs text-gray-400 mt-1">0 of 80 topics completed</p>
+                    </div>
+
+                    <div class="relative w-16 h-16 flex items-center justify-center">
+                        <svg class="w-full h-full transform -rotate-90" viewBox="0 0 36 36">
+                            <path class="text-darkbg-700" stroke-width="3.5" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                            <path id="circle-progress" class="text-neon transition-all duration-500 ease-out" stroke-dasharray="0, 100" stroke-width="3.5" stroke-linecap="round" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                        </svg>
+                        <i class="fa-solid fa-graduation-cap absolute text-neon text-sm"></i>
+                    </div>
                 </div>
+                <div class="absolute -right-8 -bottom-8 w-32 h-32 bg-neon/5 rounded-full blur-2xl pointer-events-none"></div>
+            </div>
 
-                <div class="relative w-16 h-16 flex items-center justify-center">
-                    <svg class="w-full h-full transform -rotate-90" viewBox="0 0 36 36">
-                        <path class="text-darkbg-700" stroke-width="3.5" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                        <path id="circle-progress" class="text-neon transition-all duration-500 ease-out" stroke-dasharray="0, 100" stroke-width="3.5" stroke-linecap="round" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                    </svg>
-                    <i class="fa-solid fa-graduation-cap absolute text-neon text-sm"></i>
+            <div class="flex items-center justify-between pt-1">
+                <h3 class="text-xs font-bold uppercase tracking-wider text-gray-400">Roadmap Topics (1-80)</h3>
+                <span class="text-[11px] bg-darkbg-800 text-neon font-medium px-2 py-0.5 rounded-full border border-darkbg-700">
+                    A1 - B1 Level
+                </span>
+            </div>
+
+            <!-- Topics List Container -->
+            <div id="topics-list" class="space-y-2.5 pb-6"></div>
+        </div>
+
+        <!-- VOCABULARY VIEW -->
+        <div id="view-vocab" class="space-y-4 hidden">
+            <!-- Vocab Progress Widget -->
+            <div class="bg-darkbg-800 rounded-2xl p-4 border border-darkbg-700 relative overflow-hidden">
+                <div class="flex items-center justify-between relative z-10">
+                    <div>
+                        <span class="text-xs font-semibold uppercase tracking-wider text-neon">Vocabulary Progress</span>
+                        <h2 id="vocab-percent" class="text-3xl font-extrabold text-white glow-text mt-0.5">0%</h2>
+                        <p id="vocab-subtitle" class="text-xs text-gray-400 mt-1">0 of 5 Packs completed (20 words each)</p>
+                    </div>
+                    <div class="w-12 h-12 rounded-2xl bg-neon/10 border border-neon/30 flex items-center justify-center text-neon text-xl">
+                        <i class="fa-solid fa-language"></i>
+                    </div>
                 </div>
             </div>
-            <div class="absolute -right-8 -bottom-8 w-32 h-32 bg-neon/5 rounded-full blur-2xl pointer-events-none"></div>
-        </div>
 
-        <div class="flex items-center justify-between pt-1">
-            <h3 class="text-xs font-bold uppercase tracking-wider text-gray-400">Roadmap Topics (1-80)</h3>
-            <span class="text-[11px] bg-darkbg-800 text-neon font-medium px-2 py-0.5 rounded-full border border-darkbg-700">
-                A1 - B1 Level
-            </span>
-        </div>
+            <div class="flex items-center justify-between pt-1">
+                <h3 class="text-xs font-bold uppercase tracking-wider text-gray-400">Vocabulary Packs (20 Words / Pack)</h3>
+                <span class="text-[11px] bg-darkbg-800 text-neon font-medium px-2 py-0.5 rounded-full border border-darkbg-700">
+                    Smart 20/20 Test
+                </span>
+            </div>
 
-        <!-- Topics List Container -->
-        <div id="topics-list" class="space-y-2.5 pb-6"></div>
+            <!-- Vocab Packs List -->
+            <div id="vocab-packs-list" class="space-y-2.5 pb-6"></div>
+        </div>
     </main>
+
+    <!-- BOTTOM NAVIGATION BAR -->
+    <nav class="fixed bottom-0 left-0 right-0 max-w-md mx-auto bg-darkbg-900/95 backdrop-blur-md border-t border-darkbg-800 py-2 px-6 z-40 flex items-center justify-around">
+        <button onclick="switchTab('grammar')" id="nav-btn-grammar" class="flex flex-col items-center space-y-1 text-neon transition">
+            <i class="fa-solid fa-map text-lg"></i>
+            <span class="text-[10px] font-semibold">Roadmap</span>
+        </button>
+        <button onclick="switchTab('vocab')" id="nav-btn-vocab" class="flex flex-col items-center space-y-1 text-gray-400 hover:text-white transition">
+            <i class="fa-solid fa-book-bookmark text-lg"></i>
+            <span class="text-[10px] font-semibold">Vocabulary</span>
+        </button>
+    </nav>
 
     <!-- TOPIC DETAIL MODAL -->
     <div id="topic-modal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-end sm:items-center justify-center hidden transition-opacity duration-300">
@@ -143,7 +185,7 @@
                 <p id="lesson-desc" class="text-xs text-gray-300 leading-relaxed"></p>
             </div>
 
-            <!-- TIMER CONTAINER (Faqat bajarilmagan darslar uchun ko'rinadi) -->
+            <!-- TIMER CONTAINER -->
             <div id="timer-container" class="bg-darkbg-900 rounded-2xl p-4 border border-darkbg-700 space-y-3">
                 <div class="flex items-center justify-between text-xs text-gray-400">
                     <span class="flex items-center gap-1.5 font-medium text-gray-300">
@@ -160,7 +202,7 @@
                     <div class="w-full bg-darkbg-700 rounded-full h-2 overflow-hidden">
                         <div id="timer-progress-bar" class="bg-neon h-full w-full transition-all duration-1000" style="width: 100%;"></div>
                     </div>
-                    <p class="text-[10px] text-gray-500 mt-1 text-center">1. "Send homework" orqali vazifani yuboring. 2. So'ng "Mark as Completed" bosing.</p>
+                    <p class="text-[10px] text-gray-500 mt-1 text-center">1. "Send homework" orqali yuboring. 2. "Mark as Completed" bosing.</p>
                 </div>
             </div>
 
@@ -185,6 +227,57 @@
                     Next <i class="fa-solid fa-chevron-right text-[10px]"></i>
                 </button>
             </div>
+        </div>
+    </div>
+
+    <!-- VOCABULARY PACK MODAL / PREVIEW -->
+    <div id="vocab-modal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-end sm:items-center justify-center hidden transition-opacity duration-300">
+        <div class="bg-darkbg-800 border border-darkbg-700 w-full max-w-md rounded-t-3xl sm:rounded-3xl p-5 space-y-4 max-h-[90vh] overflow-y-auto" id="vocab-modal-content">
+            <div class="flex items-center justify-between pb-2 border-b border-darkbg-700">
+                <div class="flex items-center space-x-2 text-xs text-gray-400">
+                    <span id="vocab-pack-title" class="text-neon font-bold">Pack 1</span>
+                    <span>(20 Words)</span>
+                </div>
+                <button onclick="closeVocabModal()" class="w-8 h-8 rounded-full bg-darkbg-700 flex items-center justify-center text-gray-400 hover:text-white transition">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="space-y-2">
+                <h3 class="text-sm font-bold text-white">To'plamdagi so'zlar ro'yxati (20 ta):</h3>
+                <div id="vocab-words-preview" class="space-y-1.5 max-h-48 overflow-y-auto pr-1"></div>
+            </div>
+
+            <button onclick="startVocabQuiz()" class="w-full py-3.5 bg-neon text-darkbg-900 font-extrabold rounded-xl shadow-lg hover:bg-neon-glow transition active:scale-[0.98] flex items-center justify-center space-x-2">
+                <i class="fa-solid fa-play"></i>
+                <span>START QUIZ (20/20 Test)</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- VOCABULARY QUIZ ACTIVE MODAL -->
+    <div id="quiz-modal" class="fixed inset-0 bg-black/90 backdrop-blur-lg z-50 flex items-center justify-center hidden p-4">
+        <div class="bg-darkbg-800 border border-neon/50 w-full max-w-sm rounded-3xl p-5 space-y-4 relative">
+            <div class="flex items-center justify-between text-xs text-gray-400 pb-2 border-b border-darkbg-700">
+                <span id="quiz-progress-text" class="text-neon font-bold">Question 1 of 20</span>
+                <span id="quiz-timer" class="font-mono text-neon font-bold text-sm bg-darkbg-900 px-2.5 py-1 rounded-lg border border-darkbg-700">10s</span>
+            </div>
+
+            <!-- Quiz Question Area -->
+            <div class="bg-darkbg-900 p-4 rounded-2xl border border-darkbg-700 text-center space-y-3">
+                <div id="quiz-image-container" class="w-16 h-16 mx-auto rounded-xl bg-darkbg-800 border border-darkbg-700 flex items-center justify-center text-2xl text-neon">
+                    <i class="fa-solid fa-image"></i>
+                </div>
+                <h4 id="quiz-question-word" class="text-xl font-extrabold text-white">Haus</h4>
+                <p id="quiz-question-type" class="text-[11px] text-gray-400 font-medium">To'g'ri tarjimani tanlang</p>
+                
+                <!-- Format dependent answer input/options -->
+                <div id="quiz-options-container" class="space-y-2 pt-2"></div>
+            </div>
+
+            <button onclick="quitQuiz()" class="w-full py-2 bg-darkbg-700 hover:bg-darkbg-600 text-gray-300 text-xs font-bold rounded-xl transition">
+                Chiqish
+            </button>
         </div>
     </div>
 
@@ -277,7 +370,7 @@
             { id: 41, name: "Hauptsätze verbinden (Position 1)", detail: "Deshalb, sonst, dann, danach" },
             { id: 42, name: "Nebensätze", detail: "Weil, dass und wenn" },
             { id: 43, name: "Positionsadverbien und Direktionaladverbien", detail: "Ich bin da. Kommst du auch dahin?" },
-            { id: 44, name: "Partikeln", detail: "Was heißt das denn?" },
+            { id: 44, name: "Partikeln", detail: "What heißt das denn?" },
             { id: 45, name: "Komposita", detail: "Kinderarzt oder Arztkinder?" },
             { id: 46, name: "Aus Wörtern neue Wörter machen", detail: "-chen, -lein, -er, -in, -ung" },
             { id: 47, name: "Zusammengesetzte Verben", detail: "Ich bin dann mal weg" },
@@ -316,6 +409,77 @@
             { id: 80, name: "Partizip 1 als Adjektiv", detail: "Singende Vögel und fliegende Fische" }
         ];
 
+        // 5 ta To'plam (PDF dagi 1-dars va boshqa darslar asosidagi so'zlar)
+        const VOCAB_PACKS = [
+            {
+                packId: 1,
+                title: "1-To'plam: Unterricht 1 (Salomlashish)",
+                words: [
+                    { de: "Alphabet", uz: "alifbo", icon: "fa-font" },
+                    { de: "Hallo", uz: "salom", icon: "fa-hand-wave" },
+                    { de: "Guten Morgen", uz: "xayrli tong", icon: "fa-sun" },
+                    { de: "Guten Tag", uz: "xayrli kun", icon: "fa-cloud-sun" },
+                    { de: "Guten Abend", uz: "xayrli oqshom", icon: "fa-moon" },
+                    { de: "Bis bald", uz: "ko'rishguncha", icon: "fa-comments" },
+                    { de: "Auf Wiedersehen", uz: "ko'rishguncha", icon: "fa-person-walking" },
+                    { de: "Danke", uz: "rahmat", icon: "fa-heart" },
+                    { de: "Bitte", uz: "iltimos / arzimaydi", icon: "fa-face-smile" },
+                    { de: "Vielen Dank", uz: "katta rahmat", icon: "fa-hands-clapping" },
+                    { de: "Name", uz: "ism", icon: "fa-id-card" },
+                    { de: "Wer?", uz: "kim?", icon: "fa-question" },
+                    { de: "Was?", uz: "nima?", icon: "fa-circle-question" },
+                    { de: "Wie?", uz: "qanday?", icon: "fa-circle-info" },
+                    { de: "Wo?", uz: "qayerda?", icon: "fa-location-dot" },
+                    { de: "gut", uz: "yaxshi", icon: "fa-thumbs-up" },
+                    { de: "super", uz: "zo'r", icon: "fa-star" },
+                    { de: "Usbekistan", uz: "O'zbekiston", icon: "fa-earth-asia" },
+                    { de: "kommen", uz: "kelmoq", icon: "fa-shoe-prints" },
+                    { de: "hören", uz: "eshitmoq", icon: "fa-headphones" }
+                ]
+            },
+            {
+                packId: 2,
+                title: "2-To'plam: Unterricht 2 (Otlar va fe'llar)",
+                words: [
+                    { de: "Stuhl", uz: "stul", icon: "fa-chair" },
+                    { de: "Student", uz: "talaba", icon: "fa-graduation-cap" },
+                    { de: "sprechen", uz: "gapirmoq", icon: "fa-comment" },
+                    { de: "Sprache", uz: "til", icon: "fa-language" },
+                    { de: "Sport", uz: "sport", icon: "fa-basketball" },
+                    { de: "Schule", uz: "maktab", icon: "fa-school" },
+                    { de: "Taschkent", uz: "Toshkent", icon: "fa-city" },
+                    { de: "schön", uz: "chiroyli", icon: "fa-gem" },
+                    { de: "heute", uz: "bugun", icon: "fa-calendar-day" },
+                    { de: "Deutsch", uz: "nemis tili", icon: "fa-book" },
+                    { de: "Deutschland", uz: "Germaniya", icon: "fa-flag" },
+                    { de: "heißen", uz: "atalmoq", icon: "fa-signature" },
+                    { de: "mein", uz: "mening", icon: "fa-user" },
+                    { de: "dein", uz: "sening", icon: "fa-user-pen" },
+                    { de: "ich", uz: "men", icon: "fa-circle-user" },
+                    { de: "du", uz: "sen", icon: "fa-user" },
+                    { de: "Gute Nacht", uz: "xayrli tun", icon: "fa-moon" },
+                    { de: "Zoo", uz: "hayvonot bog'i", icon: "fa-hippo" },
+                    { de: "Woher?", uz: "qayerdan?", icon: "fa-signs-post" },
+                    { de: "aus", uz: "dan", icon: "fa-arrow-right-from-bracket" }
+                ]
+            },
+            {
+                packId: 3,
+                title: "3-To'plam: Unterricht 5 (Yosh va oila)",
+                words: Array.from({length: 20}, (_, i) => ({ de: `Wort${i+41}`, uz: `Tarjima${i+41}`, icon: "fa-star" }))
+            },
+            {
+                packId: 4,
+                title: "4-To'plam: Unterricht 7 (Oila a'zolari)",
+                words: Array.from({length: 20}, (_, i) => ({ de: `Wort${i+61}`, uz: `Tarjima${i+61}`, icon: "fa-users" }))
+            },
+            {
+                packId: 5,
+                title: "5-To'plam: Unterricht 9 (Uy va buyumlar)",
+                words: Array.from({length: 20}, (_, i) => ({ de: `Wort${i+81}`, uz: `Tarjima${i+81}`, icon: "fa-house" }))
+            }
+        ];
+
         const PENALTY_DRILL_VOCAB = [
             { de: "Haus", en: "House / Uy" },
             { de: "Wasser", en: "Water / Suv" },
@@ -327,17 +491,26 @@
         let appState = {
             completedTopics: [],
             topicTimers: {}, 
-            homeworkSentMap: {}
+            homeworkSentMap: {},
+            completedVocabPacks: []
         };
 
         let currentActiveTopic = null;
         let timerInterval = null;
         let penaltyStepIndex = 0;
 
+        let activeVocabPack = null;
+        let quizQueue = [];
+        let currentQuizIndex = 0;
+        let quizTimerInterval = null;
+        let quizTimeLeft = 10;
+
         window.addEventListener('DOMContentLoaded', () => {
             loadStateFromStorage();
             renderRoadmap();
+            renderVocabPacks();
             updateProgressOverview();
+            updateVocabProgressOverview();
         });
 
         function loadStateFromStorage() {
@@ -351,6 +524,28 @@
             try {
                 localStorage.setItem('de_roadmap_app_state', JSON.stringify(appState));
             } catch (e) {}
+        }
+
+        function switchTab(tab) {
+            const btnGrammar = document.getElementById('nav-btn-grammar');
+            const btnVocab = document.getElementById('nav-btn-vocab');
+            const viewGrammar = document.getElementById('view-grammar');
+            const viewVocab = document.getElementById('view-vocab');
+            const headerSub = document.getElementById('header-subtitle');
+
+            if (tab === 'grammar') {
+                btnGrammar.className = "flex flex-col items-center space-y-1 text-neon transition";
+                btnVocab.className = "flex flex-col items-center space-y-1 text-gray-400 hover:text-white transition";
+                viewGrammar.classList.remove('hidden');
+                viewVocab.classList.add('hidden');
+                headerSub.innerText = "Grammatik Aktiv A1 - B1";
+            } else {
+                btnVocab.className = "flex flex-col items-center space-y-1 text-neon transition";
+                btnGrammar.className = "flex flex-col items-center space-y-1 text-gray-400 hover:text-white transition";
+                viewVocab.classList.remove('hidden');
+                viewGrammar.classList.add('hidden');
+                headerSub.innerText = "Vocabulary Packs & 20/20 Test";
+            }
         }
 
         function renderRoadmap() {
@@ -373,21 +568,14 @@
                 }`;
 
                 card.onclick = () => {
-                    if (isUnlocked) {
-                        openTopicModal(topic);
-                    } else {
-                        showToast("Oldingi mavzuni tugatib, keyin ochasiz!");
-                    }
+                    if (isUnlocked) openTopicModal(topic);
+                    else showToast("Oldingi mavzuni tugatib, keyin ochasiz!");
                 };
 
                 card.innerHTML = `
                     <div class="flex items-center space-x-3.5 overflow-hidden">
                         <div class="w-9 h-9 rounded-xl flex items-center justify-center font-bold text-sm shrink-0 ${
-                            isCompleted 
-                                ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30' 
-                                : isUnlocked 
-                                    ? 'bg-neon text-darkbg-900 font-extrabold' 
-                                    : 'bg-darkbg-700 text-gray-500'
+                            isCompleted ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30' : isUnlocked ? 'bg-neon text-darkbg-900 font-extrabold' : 'bg-darkbg-700 text-gray-500'
                         }">
                             ${topicId}
                         </div>
@@ -401,31 +589,223 @@
                         </div>
                     </div>
                     <div class="shrink-0 ml-2">
-                        ${
-                            isCompleted 
-                                ? '<span class="text-[11px] bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-2.5 py-1 rounded-full font-semibold">Done</span>'
-                                : isUnlocked 
-                                    ? '<span class="text-[11px] bg-neon/20 text-neon border border-neon/40 px-2.5 py-1 rounded-full font-semibold">Start</span>'
-                                    : '<span class="text-[11px] bg-darkbg-700 text-gray-500 px-2.5 py-1 rounded-full font-semibold"><i class="fa-solid fa-lock text-[9px] mr-1"></i>Locked</span>'
-                        }
+                        ${isCompleted ? '<span class="text-[11px] bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-2.5 py-1 rounded-full font-semibold">Done</span>' : isUnlocked ? '<span class="text-[11px] bg-neon/20 text-neon border border-neon/40 px-2.5 py-1 rounded-full font-semibold">Start</span>' : '<span class="text-[11px] bg-darkbg-700 text-gray-500 px-2.5 py-1 rounded-full font-semibold"><i class="fa-solid fa-lock text-[9px] mr-1"></i>Locked</span>'}
                     </div>
                 `;
-
                 container.appendChild(card);
             });
         }
 
+        function renderVocabPacks() {
+            const container = document.getElementById('vocab-packs-list');
+            if (!container) return;
+            container.innerHTML = '';
+
+            VOCAB_PACKS.forEach((pack) => {
+                const packId = pack.packId;
+                const isCompleted = appState.completedVocabPacks.includes(packId);
+                const isUnlocked = packId === 1 || appState.completedVocabPacks.includes(packId - 1);
+
+                const card = document.createElement('div');
+                card.className = `p-3.5 rounded-2xl border transition-all duration-200 flex items-center justify-between cursor-pointer ${
+                    isCompleted 
+                        ? 'bg-darkbg-800/60 border-emerald-500/30 text-gray-300' 
+                        : isUnlocked 
+                            ? 'bg-darkbg-800 border-neon/50 text-white hover:border-neon neon-glow' 
+                            : 'bg-darkbg-900/40 border-darkbg-800 text-gray-500 opacity-60 cursor-not-allowed'
+                }`;
+
+                card.onclick = () => {
+                    if (isUnlocked) openVocabModal(pack);
+                    else showToast("Oldingi to'plamni 20/20 bajarib tugating!");
+                };
+
+                card.innerHTML = `
+                    <div class="flex items-center space-x-3.5 overflow-hidden">
+                        <div class="w-9 h-9 rounded-xl flex items-center justify-center font-bold text-sm shrink-0 ${
+                            isCompleted ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30' : isUnlocked ? 'bg-neon text-darkbg-900 font-extrabold' : 'bg-darkbg-700 text-gray-500'
+                        }">
+                            P${packId}
+                        </div>
+                        <div class="truncate">
+                            <h4 class="text-sm font-bold truncate ${isCompleted ? 'text-emerald-400' : 'text-white'}">
+                                ${pack.title}
+                            </h4>
+                            <span class="text-[11px] text-gray-400 mt-0.5 font-medium">
+                                20 ta so'z • Smart 4-Format Test
+                            </span>
+                        </div>
+                    </div>
+                    <div class="shrink-0 ml-2">
+                        ${isCompleted ? '<span class="text-[11px] bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-2.5 py-1 rounded-full font-semibold">20/20 Done</span>' : isUnlocked ? '<span class="text-[11px] bg-neon/20 text-neon border border-neon/40 px-2.5 py-1 rounded-full font-semibold">Learn</span>' : '<span class="text-[11px] bg-darkbg-700 text-gray-500 px-2.5 py-1 rounded-full font-semibold"><i class="fa-solid fa-lock text-[9px] mr-1"></i>Locked</span>'}
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function openVocabModal(pack) {
+            activeVocabPack = pack;
+            document.getElementById('vocab-pack-title').innerText = pack.title;
+            
+            const previewContainer = document.getElementById('vocab-words-preview');
+            previewContainer.innerHTML = '';
+            pack.words.forEach((w) => {
+                previewContainer.innerHTML += `
+                    <div class="flex items-center justify-between bg-darkbg-900 px-3 py-2 rounded-xl border border-darkbg-700 text-xs">
+                        <div class="flex items-center space-x-2">
+                            <i class="fa-solid ${w.icon} text-neon"></i>
+                            <span class="font-bold text-white">${w.de}</span>
+                        </div>
+                        <span class="text-gray-400 italic">${w.uz}</span>
+                    </div>
+                `;
+            });
+
+            document.getElementById('vocab-modal').classList.remove('hidden');
+        }
+
+        function closeVocabModal() {
+            document.getElementById('vocab-modal').classList.add('hidden');
+        }
+
+        function startVocabQuiz() {
+            closeVocabModal();
+            quizQueue = [...activeVocabPack.words];
+            currentQuizIndex = 0;
+            document.getElementById('quiz-modal').classList.remove('hidden');
+            loadNextQuizQuestion();
+        }
+
+        function loadNextQuizQuestion() {
+            if (quizTimerInterval) clearInterval(quizTimerInterval);
+
+            if (currentQuizIndex >= quizQueue.length) {
+                document.getElementById('quiz-modal').classList.add('hidden');
+                if (!appState.completedVocabPacks.includes(activeVocabPack.packId)) {
+                    appState.completedVocabPacks.push(activeVocabPack.packId);
+                    saveStateToStorage();
+                    renderVocabPacks();
+                    updateVocabProgressOverview();
+                }
+                showToast(`Tabriklayman! ${activeVocabPack.title} 20/20 bajarildi! 🔓`);
+                return;
+            }
+
+            quizTimeLeft = 10;
+            document.getElementById('quiz-timer').innerText = `${quizTimeLeft}s`;
+
+            const currentWord = quizQueue[currentQuizIndex];
+            document.getElementById('quiz-progress-text').innerText = `Question ${currentQuizIndex + 1} of ${quizQueue.length}`;
+            document.getElementById('quiz-question-word').innerText = currentWord.de;
+            
+            const iconEl = document.getElementById('quiz-image-container').querySelector('i');
+            iconEl.className = `fa-solid ${currentWord.icon} text-neon`;
+
+            const formatType = Math.floor(Math.random() * 4) + 1; // 4 xil test formati
+            const optionsContainer = document.getElementById('quiz-options-container');
+            optionsContainer.innerHTML = '';
+
+            if (formatType === 1) {
+                document.getElementById('quiz-question-type').innerText = "1. To'g'ri tarjimani tanlang (Multiple Choice)";
+                let options = [currentWord.uz];
+                while(options.length < 4) {
+                    let randWord = activeVocabPack.words[Math.floor(Math.random() * activeVocabPack.words.length)].uz;
+                    if(!options.includes(randWord)) options.push(randWord);
+                }
+                options.sort(() => Math.random() - 0.5);
+
+                options.forEach(opt => {
+                    const btn = document.createElement('button');
+                    btn.className = "w-full py-2.5 bg-darkbg-800 hover:bg-darkbg-700 text-white font-medium rounded-xl border border-darkbg-700 text-xs transition";
+                    btn.innerText = opt;
+                    btn.onclick = () => checkQuizAnswer(opt === currentWord.uz);
+                    optionsContainer.appendChild(btn);
+                });
+            } else if (formatType === 2) {
+                document.getElementById('quiz-question-type').innerText = "2. So'zni qo'lda yozing (Manual Input)";
+                optionsContainer.innerHTML = `
+                    <input type="text" id="quiz-input-answer" placeholder="Tarjimasini yozing..." class="w-full bg-darkbg-800 border border-darkbg-700 text-white rounded-xl px-3 py-2.5 text-center text-xs focus:outline-none focus:border-neon mb-2">
+                    <button onclick="submitQuizInput('${currentWord.uz}')" class="w-full py-2.5 bg-neon text-darkbg-900 font-bold rounded-xl text-xs">Tekshirish</button>
+                `;
+            } else if (formatType === 3) {
+                document.getElementById('quiz-question-type').innerText = "3. Ha / Yo'q (True or False)";
+                const isCorrectMatch = Math.random() > 0.5;
+                const displayUz = isCorrectMatch ? currentWord.uz : activeVocabPack.words[Math.floor(Math.random() * activeVocabPack.words.length)].uz;
+                document.getElementById('quiz-question-word').innerText = `${currentWord.de} = ${displayUz}?`;
+
+                optionsContainer.innerHTML = `
+                    <div class="grid grid-cols-2 gap-2">
+                        <button onclick="checkQuizAnswer(${displayUz === currentWord.uz})" class="py-2.5 bg-emerald-500/20 text-emerald-400 font-bold rounded-xl border border-emerald-500/30 text-xs">Ha (True)</button>
+                        <button onclick="checkQuizAnswer(${displayUz !== currentWord.uz})" class="py-2.5 bg-red-500/20 text-red-400 font-bold rounded-xl border border-red-500/30 text-xs">Yo'q (False)</button>
+                    </div>
+                `;
+            } else {
+                document.getElementById('quiz-question-type').innerText = "4. So'zni juftini toping (Fast Match)";
+                let options = [currentWord.uz];
+                while(options.length < 2) {
+                    let randWord = activeVocabPack.words[Math.floor(Math.random() * activeVocabPack.words.length)].uz;
+                    if(!options.includes(randWord)) options.push(randWord);
+                }
+                options.sort(() => Math.random() - 0.5);
+
+                options.forEach(opt => {
+                    const btn = document.createElement('button');
+                    btn.className = "w-full py-2.5 bg-darkbg-800 hover:bg-darkbg-700 text-white font-medium rounded-xl border border-darkbg-700 text-xs transition";
+                    btn.innerText = opt;
+                    btn.onclick = () => checkQuizAnswer(opt === currentWord.uz);
+                    optionsContainer.appendChild(btn);
+                });
+            }
+
+            quizTimerInterval = setInterval(() => {
+                quizTimeLeft--;
+                document.getElementById('quiz-timer').innerText = `${quizTimeLeft}s`;
+                if(quizTimeLeft <= 0) {
+                    clearInterval(quizTimerInterval);
+                    showToast("Vaqt tugadi! So'z navbat oxiriga qaytarildi.");
+                    quizQueue.push(currentWord);
+                    currentQuizIndex++;
+                    loadNextQuizQuestion();
+                }
+            }, 1000);
+        }
+
+        function checkQuizAnswer(isCorrect) {
+            if(quizTimerInterval) clearInterval(quizTimerInterval);
+            const currentWord = quizQueue[currentQuizIndex];
+
+            if(isCorrect) {
+                showToast("To'g'ri! ✅");
+                currentQuizIndex++;
+                loadNextQuizQuestion();
+            } else {
+                showToast("Xato! ❌ So'z oxiriga qaytarildi.");
+                quizQueue.push(currentWord);
+                currentQuizIndex++;
+                loadNextQuizQuestion();
+            }
+        }
+
+        function submitQuizInput(correctUz) {
+            const inputVal = document.getElementById('quiz-input-answer').value.trim().toLowerCase();
+            const isCorrect = inputVal === correctUz.toLowerCase();
+            checkQuizAnswer(isCorrect);
+        }
+
+        function quitQuiz() {
+            if(quizTimerInterval) clearInterval(quizTimerInterval);
+            document.getElementById('quiz-modal').classList.add('hidden');
+            showToast("Quiz to'xtatildi.");
+        }
+
         function openTopicModal(topic) {
             currentActiveTopic = topic;
-            
-            if (appState.homeworkSentMap[topic.id] === undefined) {
-                appState.homeworkSentMap[topic.id] = false;
-            }
+            if (appState.homeworkSentMap[topic.id] === undefined) appState.homeworkSentMap[topic.id] = false;
             
             document.getElementById('modal-topic-num').innerText = `Topic ${topic.id}`;
             document.getElementById('modal-title').innerText = topic.name;
             document.getElementById('modal-detail-text').innerText = topic.detail;
-
             document.getElementById('lesson-desc').innerText = `Ushbu darsda "${topic.name}" grammatik qoidasi o'rganiladi (${topic.detail}).`;
 
             const statusBadge = document.getElementById('modal-status-badge');
@@ -437,15 +817,11 @@
             if (isCompleted) {
                 statusBadge.innerText = 'Completed';
                 statusBadge.className = 'text-xs px-2.5 py-1 rounded-md font-semibold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30';
-                
-                // Bajarilgan bo'lsa taymer va tugmalarni yashiramiz, chunki dars allaqachon tugatilgan
                 timerContainer.classList.add('hidden');
                 actionsContainer.classList.add('hidden');
             } else {
                 statusBadge.innerText = 'In Progress';
                 statusBadge.className = 'text-xs px-2.5 py-1 rounded-md font-semibold bg-neon/20 text-neon border border-neon/30';
-                
-                // Bajarilmagan bo'lsa taymer va tugmalar ko'rsatiladi
                 timerContainer.classList.remove('hidden');
                 actionsContainer.classList.remove('hidden');
 
@@ -456,7 +832,6 @@
                     completeBtn.disabled = true;
                     completeBtn.className = 'w-full py-3 bg-darkbg-700 text-gray-400 font-bold rounded-xl transition active:scale-[0.98] flex items-center justify-center space-x-2 cursor-not-allowed';
                 }
-
                 startTopicTimer(topic.id);
             }
 
@@ -466,18 +841,14 @@
             const modal = document.getElementById('topic-modal');
             const content = document.getElementById('modal-content');
             modal.classList.remove('hidden');
-            setTimeout(() => {
-                content.classList.remove('translate-y-full');
-            }, 10);
+            setTimeout(() => content.classList.remove('translate-y-full'), 10);
         }
 
         function closeTopicModal() {
             const modal = document.getElementById('topic-modal');
             const content = document.getElementById('modal-content');
             content.classList.add('translate-y-full');
-            setTimeout(() => {
-                modal.classList.add('hidden');
-            }, 300);
+            setTimeout(() => modal.classList.add('hidden'), 300);
             if (timerInterval) clearInterval(timerInterval);
         }
 
@@ -488,8 +859,7 @@
                 const isUnlocked = targetId === 1 || appState.completedTopics.includes(targetId - 1);
                 if (isUnlocked) {
                     if (timerInterval) clearInterval(timerInterval);
-                    const targetTopic = RAW_TOPICS.find(t => t.id === targetId);
-                    openTopicModal(targetTopic);
+                    openTopicModal(RAW_TOPICS.find(t => t.id === targetId));
                 } else {
                     showToast("Keyingi mavzu hali yopiq!");
                 }
@@ -499,37 +869,25 @@
         function startTopicTimer(topicId) {
             if (timerInterval) clearInterval(timerInterval);
             const totalSeconds = 30 * 60;
-
             if (!appState.topicTimers[topicId]) {
                 appState.topicTimers[topicId] = Date.now();
                 saveStateToStorage();
             }
 
             function updateTimerDisplay() {
-                const startTime = appState.topicTimers[topicId];
-                const elapsedSeconds = Math.floor((Date.now() - startTime) / 1000);
+                const elapsedSeconds = Math.floor((Date.now() - appState.topicTimers[topicId]) / 1000);
                 const remainingSeconds = totalSeconds - elapsedSeconds;
 
                 if (remainingSeconds <= 0) {
                     if (timerInterval) clearInterval(timerInterval);
-                    const display = document.getElementById('timer-display');
-                    const bar = document.getElementById('timer-progress-bar');
-                    if (display) display.innerText = "00:00";
-                    if (bar) bar.style.width = "0%";
                     triggerPenaltyDrill(topicId);
                     return;
                 }
 
                 const mins = Math.floor(remainingSeconds / 60);
                 const secs = remainingSeconds % 60;
-                const display = document.getElementById('timer-display');
-                if (display) {
-                    display.innerText = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
-                }
-
-                const percentage = (remainingSeconds / totalSeconds) * 100;
-                const bar = document.getElementById('timer-progress-bar');
-                if (bar) bar.style.width = `${percentage}%`;
+                document.getElementById('timer-display').innerText = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+                document.getElementById('timer-progress-bar').style.width = `${(remainingSeconds / totalSeconds) * 100}%`;
             }
 
             updateTimerDisplay();
@@ -539,22 +897,17 @@
         function openGoogleFormHomework() {
             if (!currentActiveTopic) return;
             window.open(GOOGLE_FORM_URL, '_blank');
-            
             appState.homeworkSentMap[currentActiveTopic.id] = true;
             saveStateToStorage();
 
             const completeBtn = document.getElementById('btn-complete');
-            if (completeBtn) {
-                completeBtn.disabled = false;
-                completeBtn.className = 'w-full py-3 bg-emerald-500 hover:bg-emerald-600 text-white font-bold rounded-xl shadow-lg transition active:scale-[0.98] flex items-center justify-center space-x-2';
-            }
-            
+            completeBtn.disabled = false;
+            completeBtn.className = 'w-full py-3 bg-emerald-500 hover:bg-emerald-600 text-white font-bold rounded-xl shadow-lg transition active:scale-[0.98] flex items-center justify-center space-x-2';
             showToast("Google Form ochildi! Vazifani topshirib, endi 'Mark as Completed' bosing.");
         }
 
         function markTopicComplete() {
             if (!currentActiveTopic) return;
-            
             if (!appState.homeworkSentMap[currentActiveTopic.id]) {
                 showToast("Avval 'Send homework' tugmasini bosib vazifani yuboring!");
                 return;
@@ -575,36 +928,26 @@
         function triggerPenaltyDrill(topicId) {
             closeTopicModal();
             penaltyStepIndex = 0;
-            const penaltyModal = document.getElementById('penalty-modal');
-            if (penaltyModal) penaltyModal.classList.remove('hidden');
+            document.getElementById('penalty-modal').classList.remove('hidden');
             renderPenaltyCard();
         }
 
         function renderPenaltyCard() {
             const currentVocab = PENALTY_DRILL_VOCAB[penaltyStepIndex];
-            const stepEl = document.getElementById('penalty-step');
-            const gerEl = document.getElementById('penalty-german');
-            const transEl = document.getElementById('penalty-translation');
-            const inputEl = document.getElementById('penalty-input');
-
-            if (stepEl) stepEl.innerText = `Word ${penaltyStepIndex + 1} of 5`;
-            if (gerEl) gerEl.innerText = currentVocab.de;
-            if (transEl) transEl.innerText = currentVocab.en;
-            if (inputEl) inputEl.value = '';
+            document.getElementById('penalty-step').innerText = `Word ${penaltyStepIndex + 1} of 5`;
+            document.getElementById('penalty-german').innerText = currentVocab.de;
+            document.getElementById('penalty-translation').innerText = currentVocab.en;
+            document.getElementById('penalty-input').value = '';
         }
 
         function checkPenaltyAnswer() {
-            const inputEl = document.getElementById('penalty-input');
-            if (!inputEl) return;
-            const inputVal = inputEl.value.trim().toLowerCase();
+            const inputVal = document.getElementById('penalty-input').value.trim().toLowerCase();
             const correctVal = PENALTY_DRILL_VOCAB[penaltyStepIndex].de.toLowerCase();
 
             if (inputVal === correctVal) {
                 penaltyStepIndex++;
                 if (penaltyStepIndex >= PENALTY_DRILL_VOCAB.length) {
-                    const penaltyModal = document.getElementById('penalty-modal');
-                    if (penaltyModal) penaltyModal.classList.add('hidden');
-                    
+                    document.getElementById('penalty-modal').classList.add('hidden');
                     if (currentActiveTopic) {
                         appState.topicTimers[currentActiveTopic.id] = Date.now();
                         saveStateToStorage();
@@ -623,37 +966,35 @@
             const total = 80;
             const count = appState.completedTopics.length;
             const percent = Math.round((count / total) * 100);
+            document.getElementById('progress-percent').innerText = `${percent}%`;
+            document.getElementById('progress-subtitle').innerText = `${count} of ${total} topics completed`;
+            document.getElementById('circle-progress').setAttribute('stroke-dasharray', `${percent}, 100`);
+        }
 
-            const percentEl = document.getElementById('progress-percent');
-            const subEl = document.getElementById('progress-subtitle');
-            const circleEl = document.getElementById('circle-progress');
-
-            if (percentEl) percentEl.innerText = `${percent}%`;
-            if (subEl) subEl.innerText = `${count} of ${total} topics completed`;
-            if (circleEl) circleEl.setAttribute('stroke-dasharray', `${percent}, 100`);
+        function updateVocabProgressOverview() {
+            const total = VOCAB_PACKS.length;
+            const count = appState.completedVocabPacks.length;
+            const percent = Math.round((count / total) * 100);
+            document.getElementById('vocab-percent').innerText = `${percent}%`;
+            document.getElementById('vocab-subtitle').innerText = `${count} of ${total} Packs completed (20 words each)`;
         }
 
         function showToast(message) {
             const toast = document.getElementById('toast');
             const toastText = document.getElementById('toast-text');
-            if (!toast || !toastText) return;
             toastText.innerText = message;
             toast.classList.remove('opacity-0', 'pointer-events-none');
-            setTimeout(() => {
-                toast.classList.add('opacity-0', 'pointer-events-none');
-            }, 3000);
+            setTimeout(() => toast.classList.add('opacity-0', 'pointer-events-none'), 3000);
         }
 
         function resetProgressConfirm() {
-            if (confirm("Progressni qaytadan 0% qilmoqchimisiz?")) {
-                appState = {
-                    completedTopics: [],
-                    topicTimers: {},
-                    homeworkSentMap: {}
-                };
+            if (confirm("Barcha progressni nollashtirmoqchimisiz?")) {
+                appState = { completedTopics: [], topicTimers: {}, homeworkSentMap: {}, completedVocabPacks: [] };
                 saveStateToStorage();
                 renderRoadmap();
+                renderVocabPacks();
                 updateProgressOverview();
+                updateVocabProgressOverview();
                 showToast("Progress nollashtirildi.");
             }
         }
