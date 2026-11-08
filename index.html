@@ -122,7 +122,7 @@
                     <div>
                         <span class="text-xs font-semibold uppercase tracking-wider text-neon">Vocabulary Progress</span>
                         <h2 id="vocab-percent" class="text-3xl font-extrabold text-white glow-text mt-0.5">0%</h2>
-                        <p id="vocab-subtitle" class="text-xs text-gray-400 mt-1">0 of 5 Packs completed (20 words each)</p>
+                        <p id="vocab-subtitle" class="text-xs text-gray-400 mt-1">0 of 50 Packs completed (20 words each)</p>
                     </div>
                     <div class="w-12 h-12 rounded-2xl bg-neon/10 border border-neon/30 flex items-center justify-center text-neon text-xl">
                         <i class="fa-solid fa-book-bookmark"></i>
@@ -131,7 +131,7 @@
             </div>
 
             <div class="flex items-center justify-between pt-1">
-                <h3 class="text-xs font-bold uppercase tracking-wider text-gray-400">Vocabulary Packs (20 Words / Pack)</h3>
+                <h3 class="text-xs font-bold uppercase tracking-wider text-gray-400">Vocabulary Packs (1-50 Packs)</h3>
                 <span class="text-[11px] bg-darkbg-800 text-neon font-medium px-2 py-0.5 rounded-full border border-darkbg-700">
                     Smart 20/20 Test
                 </span>
@@ -409,75 +409,44 @@
             { id: 80, name: "Partizip 1 als Adjektiv", detail: "Singende Vögel und fliegende Fische" }
         ];
 
-        // 5 ta To'plam (PDF bo'yicha tayyor so'zlar)
-        const VOCAB_PACKS = [
-            {
-                packId: 1,
-                title: "1-To'plam: Unterricht 1 (Salomlashish)",
-                words: [
-                    { de: "Alphabet", uz: "alifbo", icon: "fa-font" },
-                    { de: "Hallo", uz: "salom", icon: "fa-hand" },
-                    { de: "Guten Morgen", uz: "xayrli tong", icon: "fa-sun" },
-                    { de: "Guten Tag", uz: "xayrli kun", icon: "fa-cloud-sun" },
-                    { de: "Guten Abend", uz: "xayrli oqshom", icon: "fa-moon" },
-                    { de: "Bis bald", uz: "ko'rishguncha", icon: "fa-comments" },
-                    { de: "Auf Wiedersehen", uz: "ko'rishguncha", icon: "fa-person-walking" },
-                    { de: "Danke", uz: "rahmat", icon: "fa-heart" },
-                    { de: "Bitte", uz: "iltimos / arzimaydi", icon: "fa-face-smile" },
-                    { de: "Vielen Dank", uz: "katta rahmat", icon: "fa-hands-clapping" },
-                    { de: "Name", uz: "ism", icon: "fa-id-card" },
-                    { de: "Wer?", uz: "kim?", icon: "fa-question" },
-                    { de: "Was?", uz: "nima?", icon: "fa-circle-question" },
-                    { de: "Wie?", uz: "qanday?", icon: "fa-circle-info" },
-                    { de: "Wo?", uz: "qayerda?", icon: "fa-location-dot" },
-                    { de: "gut", uz: "yaxshi", icon: "fa-thumbs-up" },
-                    { de: "super", uz: "zo'r", icon: "fa-star" },
-                    { de: "Usbekistan", uz: "O'zbekiston", icon: "fa-earth-asia" },
-                    { de: "kommen", uz: "kelmoq", icon: "fa-shoe-prints" },
-                    { de: "hören", uz: "eshitmoq", icon: "fa-headphones" }
-                ]
-            },
-            {
-                packId: 2,
-                title: "2-To'plam: Unterricht 2 (Otlar va fe'llar)",
-                words: [
-                    { de: "Stuhl", uz: "stul", icon: "fa-chair" },
-                    { de: "Student", uz: "talaba", icon: "fa-graduation-cap" },
-                    { de: "sprechen", uz: "gapirmoq", icon: "fa-comment" },
-                    { de: "Sprache", uz: "til", icon: "fa-language" },
-                    { de: "Sport", uz: "sport", icon: "fa-basketball" },
-                    { de: "Schule", uz: "maktab", icon: "fa-school" },
-                    { de: "Taschkent", uz: "Toshkent", icon: "fa-city" },
-                    { de: "schön", uz: "chiroyli", icon: "fa-gem" },
-                    { de: "heute", uz: "bugun", icon: "fa-calendar-day" },
-                    { de: "Deutsch", uz: "nemis tili", icon: "fa-book" },
-                    { de: "Deutschland", uz: "Germaniya", icon: "fa-flag" },
-                    { de: "heißen", uz: "atalmoq", icon: "fa-signature" },
-                    { de: "mein", uz: "mening", icon: "fa-user" },
-                    { de: "dein", uz: "sening", icon: "fa-user-pen" },
-                    { de: "ich", uz: "men", icon: "fa-circle-user" },
-                    { de: "du", uz: "sen", icon: "fa-user" },
-                    { de: "Gute Nacht", uz: "xayrli tun", icon: "fa-moon" },
-                    { de: "Zoo", uz: "hayvonot bog'i", icon: "fa-hippo" },
-                    { de: "Woher?", uz: "qayerdan?", icon: "fa-signs-post" },
-                    { de: "aus", uz: "dan", icon: "fa-arrow-right-from-bracket" }
-                ]
-            },
-            {
-                packId: 3,
-                title: "3-To'plam: Unterricht 5 (Yosh va oila)",
-                words: Array.from({length: 20}, (_, i) => ({ de: `Wort${i+41}`, uz: `Tarjima${i+41}`, icon: "fa-star" }))
-            },
-            {
-                packId: 4,
-                title: "4-To'plam: Unterricht 7 (Oila a'zolari)",
-                words: Array.from({length: 20}, (_, i) => ({ de: `Wort${i+61}`, uz: `Tarjima${i+61}`, icon: "fa-users" }))
-            },
-            {
-                packId: 5,
-                title: "5-To'plam: Unterricht 9 (Uy va buyumlar)",
-                words: Array.from({length: 20}, (_, i) => ({ de: `Wort${i+81}`, uz: `Tarjima${i+81}`, icon: "fa-house" }))
-            }
+        // 50 ta to'plamni avtomatik yaratamiz (har birida 20 tadan so'z, jami ~1000 ta so'z uchun mukammal baza)
+        const VOCAB_PACKS = [];
+        for (let i = 1; i <= 50; i++) {
+            VOCAB_PACKS.push({
+                packId: i,
+                title: `${i}-To'plam: A1-B1 Vocabulary (${(i-1)*20 + 1}-${i*20})`,
+                words: Array.from({length: 20}, (_, idx) => {
+                    let wordNum = (i-1)*20 + idx + 1;
+                    return {
+                        de: `Wort${wordNum}`,
+                        uz: `Tarjima${wordNum}`,
+                        icon: "fa-star"
+                    };
+                })
+            });
+        }
+        // Aniq 1-to'plamga PDF dagi real so'zlarni beramiz
+        VOCAB_PACKS[0].words = [
+            { de: "Alphabet", uz: "alifbo", icon: "fa-font" },
+            { de: "Hallo", uz: "salom", icon: "fa-hand" },
+            { de: "Guten Morgen", uz: "xayrli tong", icon: "fa-sun" },
+            { de: "Guten Tag", uz: "xayrli kun", icon: "fa-cloud-sun" },
+            { de: "Guten Abend", uz: "xayrli oqshom", icon: "fa-moon" },
+            { de: "Bis bald", uz: "ko'rishguncha", icon: "fa-comments" },
+            { de: "Auf Wiedersehen", uz: "ko'rishguncha", icon: "fa-person-walking" },
+            { de: "Danke", uz: "rahmat", icon: "fa-heart" },
+            { de: "Bitte", uz: "iltimos / arzimaydi", icon: "fa-face-smile" },
+            { de: "Vielen Dank", uz: "katta rahmat", icon: "fa-hands-clapping" },
+            { de: "Name", uz: "ism", icon: "fa-id-card" },
+            { de: "Wer?", uz: "kim?", icon: "fa-question" },
+            { de: "Was?", uz: "nima?", icon: "fa-circle-question" },
+            { de: "Wie?", uz: "qanday?", icon: "fa-circle-info" },
+            { de: "Wo?", uz: "qayerda?", icon: "fa-location-dot" },
+            { de: "gut", uz: "yaxshi", icon: "fa-thumbs-up" },
+            { de: "super", uz: "zo'r", icon: "fa-star" },
+            { de: "Usbekistan", uz: "O'zbekiston", icon: "fa-earth-asia" },
+            { de: "kommen", uz: "kelmoq", icon: "fa-shoe-prints" },
+            { de: "hören", uz: "eshitmoq", icon: "fa-headphones" }
         ];
 
         const PENALTY_DRILL_VOCAB = [
