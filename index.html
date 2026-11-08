@@ -1,182 +1,314 @@
 <!DOCTYPE html>
-<html lang="uz">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>German Roadmap</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>German A1-B1 Roadmap Mini App</title>
+
+    <!-- Telegram WebApp SDK -->
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        neon: {
+                            DEFAULT: '#FFE600',
+                            glow: '#FFF500',
+                            dark: '#CCA300',
+                            green: '#10B981',
+                            red: '#EF4444'
+                        },
+                        darkbg: {
+                            900: '#121214',
+                            800: '#1E1E22',
+                            700: '#2A2A30',
+                            600: '#3F3F46'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Font: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
-        :root {
-            --bg-color: #0f172a;
-            --card-bg: #1e293b;
-            --accent: #38bdf8;
-            --accent-green: #22c55e;
-            --text-main: #f8fafc;
-            --text-sub: #94a3b8;
-        }
-
         body {
-            margin: 0;
-            padding: 16px;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
+            font-family: 'Inter', sans-serif;
+            background-color: #121214;
+            color: #E4E4E7;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
         }
 
-        .header {
-            text-align: center;
-            padding: 12px;
-            background: var(--card-bg);
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #121214;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2A2A30;
+            border-radius: 4px;
         }
 
-        .header h1 {
-            margin: 0;
-            font-size: 20px;
-            color: var(--accent);
+        /* Neon Glow Effect */
+        .neon-glow {
+            box-shadow: 0 0 15px rgba(255, 230, 0, 0.25);
         }
-
-        .topic-card {
-            background: var(--card-bg);
-            border-radius: 12px;
-            padding: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
+        .neon-border {
+            border: 1px solid #FFE600;
         }
-
-        .topic-card.locked {
-            opacity: 0.6;
-            filter: grayscale(0.5);
-        }
-
-        .topic-title {
-            font-size: 16px;
-            font-weight: 600;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .timer-box {
-            font-size: 13px;
-            color: var(--accent-green);
-            background: rgba(34, 197, 94, 0.1);
-            padding: 6px 12px;
-            border-radius: 8px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .btn-send {
-            display: block;
-            width: 100%;
-            padding: 12px;
-            text-align: center;
-            background: var(--accent);
-            color: #0f172a;
-            font-weight: 600;
-            text-decoration: none;
-            border-radius: 8px;
-            box-sizing: border-box;
-        }
-
-        .btn-disabled {
-            background: #475569;
-            color: #94a3b8;
-            pointer-events: none;
+        .glow-text {
+            text-shadow: 0 0 8px rgba(255, 230, 0, 0.4);
         }
     </style>
 </head>
-<body>
+<body class="bg-darkbg-900 text-gray-100 min-h-screen flex flex-col justify-between max-w-md mx-auto shadow-2xl relative border-x border-darkbg-800">
 
-    <div class="header">
-        <h1>🇩🇪 German Language Roadmap</h1>
+    <!-- Top Navigation Bar -->
+    <header class="sticky top-0 z-30 bg-darkbg-900/90 backdrop-blur-md px-4 py-3 border-b border-darkbg-800 flex items-center justify-between">
+        <div class="flex items-center space-x-2">
+            <div class="w-8 h-8 rounded-full bg-neon flex items-center justify-center font-bold text-darkbg-900 text-sm">
+                DE
+            </div>
+            <div>
+                <h1 class="text-sm font-bold text-white tracking-wide">German Roadmap</h1>
+                <p class="text-[10px] text-gray-400">A1 - B1 Mastery</p>
+            </div>
+        </div>
+        <div class="flex items-center space-x-2">
+            <button onclick="resetProgressConfirm()" class="text-xs bg-darkbg-800 hover:bg-darkbg-700 text-gray-400 px-2.5 py-1.5 rounded-lg transition border border-darkbg-700">
+                <i class="fa-solid font-xs fa-rotate-left mr-1"></i>Reset
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="flex-1 px-4 py-4 space-y-4 overflow-y-auto">
+
+        <!-- Progress Overview Widget -->
+        <div class="bg-darkbg-800 rounded-2xl p-4 border border-darkbg-700 relative overflow-hidden">
+            <div class="flex items-center justify-between relative z-10">
+                <div>
+                    <span class="text-xs font-semibold uppercase tracking-wider text-neon">Overall Progress</span>
+                    <h2 id="progress-percent" class="text-3xl font-extrabold text-white glow-text mt-0.5">0%</h2>
+                    <p id="progress-subtitle" class="text-xs text-gray-400 mt-1">0 of 80 topics completed</p>
+                </div>
+
+                <!-- Circular Progress Bar -->
+                <div class="relative w-16 h-16 flex items-center justify-center">
+                    <svg class="w-full h-full transform -rotate-90" viewBox="0 0 36 36">
+                        <path class="text-darkbg-700" stroke-width="3.5" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                        <path id="circle-progress" class="text-neon transition-all duration-500 ease-out" stroke-dasharray="0, 100" stroke-width="3.5" stroke-linecap="round" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                    </svg>
+                    <i class="fa-solid fa-graduation-cap absolute text-neon text-sm"></i>
+                </div>
+            </div>
+            <!-- Background Radial Glow -->
+            <div class="absolute -right-8 -bottom-8 w-32 h-32 bg-neon/5 rounded-full blur-2xl pointer-events-none"></div>
+        </div>
+
+        <!-- Section Header -->
+        <div class="flex items-center justify-between pt-1">
+            <h3 class="text-xs font-bold uppercase tracking-wider text-gray-400">Roadmap Topics (1-80)</h3>
+            <span class="text-[11px] bg-darkbg-800 text-neon font-medium px-2 py-0.5 rounded-full border border-darkbg-700">
+                A1 - B1 Level
+            </span>
+        </div>
+
+        <!-- Topics List Container -->
+        <div id="topics-list" class="space-y-2.5 pb-6">
+            <!-- Dynamic Topics rendered by JS -->
+        </div>
+    </main>
+
+    <!-- TOPIC DETAIL MODAL -->
+    <div id="topic-modal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-end sm:items-center justify-center hidden transition-opacity duration-300">
+        <div class="bg-darkbg-800 border border-darkbg-700 w-full max-w-md rounded-t-3xl sm:rounded-3xl p-5 space-y-4 max-h-[90vh] overflow-y-auto transform transition-transform duration-300 translate-y-full" id="modal-content">
+            
+            <!-- Modal Header -->
+            <div class="flex items-center justify-between pb-2 border-b border-darkbg-700">
+                <div class="flex items-center space-x-2 text-xs text-gray-400">
+                    <span>Roadmap</span>
+                    <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                    <span id="modal-topic-num" class="text-neon font-semibold">Topic 1</span>
+                </div>
+                <button onclick="closeTopicModal()" class="w-8 h-8 rounded-full bg-darkbg-700 flex items-center justify-center text-gray-400 hover:text-white transition">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Title & Info -->
+            <div>
+                <h2 id="modal-title" class="text-lg font-bold text-white leading-tight"></h2>
+                <div class="flex items-center space-x-2 mt-2">
+                    <span id="modal-section" class="text-xs bg-darkbg-700 text-gray-300 px-2.5 py-1 rounded-md border border-darkbg-600 font-medium"></span>
+                    <span id="modal-status-badge" class="text-xs px-2.5 py-1 rounded-md font-semibold"></span>
+                </div>
+            </div>
+
+            <!-- 30-Minute Countdown Timer Widget -->
+            <div class="bg-darkbg-900 rounded-2xl p-4 border border-darkbg-700 space-y-3">
+                <div class="flex items-center justify-between text-xs text-gray-400">
+                    <span class="flex items-center gap-1.5 font-medium text-gray-300">
+                        <i class="fa-regular fa-clock text-neon"></i> Qolgan vaqt
+                    </span>
+                    <span id="timer-status-text" class="text-[11px] text-neon">30 min Taymer</span>
+                </div>
+                
+                <div class="text-3xl font-black text-white tracking-wider font-mono text-center py-1" id="timer-display">
+                    30:00
+                </div>
+
+                <!-- Progress Bar -->
+                <div>
+                    <div class="w-full bg-darkbg-700 rounded-full h-2 overflow-hidden">
+                        <div id="timer-progress-bar" class="bg-neon h-full w-full transition-all duration-1000"></div>
+                    </div>
+                    <p class="text-[10px] text-gray-500 mt-1 text-center">Formada vazifani yuboring va "Mark as Completed" tugmasini bosing!</p>
+                </div>
+            </div>
+
+            <!-- Primary Actions -->
+            <div class="space-y-2 pt-1">
+                <button id="btn-homework" onclick="openGoogleFormHomework()" class="w-full py-3 bg-neon text-darkbg-900 font-bold rounded-xl shadow-lg hover:bg-neon-glow transition active:scale-[0.98] flex items-center justify-center space-x-2">
+                    <i class="fa-paper-plane text-darkbg-900"></i>
+                    <span>Send homework (Google Forms)</span>
+                </button>
+
+                <button id="btn-complete" onclick="markTopicComplete()" class="w-full py-3 bg-emerald-500 hover:bg-emerald-600 text-white font-bold rounded-xl shadow-lg transition active:scale-[0.98] flex items-center justify-center space-x-2">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <span>Mark as Completed & Next Topic</span>
+                </button>
+            </div>
+
+            <!-- Footer Navigation -->
+            <div class="pt-2 border-t border-darkbg-700 flex justify-between">
+                <button id="btn-prev-topic" onclick="navTopic(-1)" class="px-4 py-2 bg-darkbg-900 hover:bg-darkbg-700 text-xs font-medium text-gray-300 rounded-lg transition border border-darkbg-700 flex items-center gap-1.5">
+                    <i class="fa-solid fa-chevron-left text-[10px]"></i> Previous
+                </button>
+
+                <button id="btn-next-topic" onclick="navTopic(1)" class="px-4 py-2 bg-darkbg-900 hover:bg-darkbg-700 text-xs font-medium text-gray-300 rounded-lg transition border border-darkbg-700 flex items-center gap-1.5">
+                    Next <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                </button>
+            </div>
+        </div>
     </div>
 
-    <div id="roadmap-container"></div>
+    <!-- PENALTY VOCABULARY DRILL MODAL -->
+    <div id="penalty-modal" class="fixed inset-0 bg-black/90 backdrop-blur-lg z-50 flex items-center justify-center hidden p-4">
+        <div class="bg-darkbg-800 border-2 border-red-500 w-full max-w-sm rounded-3xl p-5 space-y-4 relative">
+            <div class="text-center space-y-1">
+                <div class="w-12 h-12 bg-red-500/20 text-red-500 rounded-full flex items-center justify-center mx-auto text-xl mb-2">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                </div>
+                <h3 class="text-lg font-bold text-white">Vaqt tugadi! Sanoq Penalty Drill</h3>
+                <p class="text-xs text-gray-400">30 daqiqa tugadi. Qaytadan ochish uchun 5 ta nemischa so'z mashqini to'liq bajaring.</p>
+            </div>
 
+            <!-- Vocab Cards Slider -->
+            <div id="penalty-vocab-card" class="bg-darkbg-900 p-4 rounded-2xl border border-darkbg-700 text-center space-y-2">
+                <span id="penalty-step" class="text-[10px] text-neon uppercase font-bold tracking-wider">Word 1 of 5</span>
+                <h4 id="penalty-german" class="text-xl font-black text-white">das Haus</h4>
+                <p id="penalty-translation" class="text-sm text-gray-400 font-medium italic">House / Uy</p>
+                <div class="pt-2">
+                    <input type="text" id="penalty-input" placeholder="Yozing..." class="w-full bg-darkbg-800 border border-darkbg-700 text-white rounded-xl px-3 py-2 text-center text-sm focus:outline-none focus:border-neon">
+                </div>
+            </div>
+
+            <button onclick="checkPenaltyAnswer()" class="w-full py-3 bg-red-500 text-white font-bold rounded-xl shadow-md hover:bg-red-600 transition flex items-center justify-center space-x-2">
+                <span>Tekshirish</span>
+                <i class="fa-solid fa-arrow-right text-xs"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="fixed top-14 left-1/2 transform -translate-x-1/2 bg-darkbg-800 border border-neon text-white text-xs px-4 py-2.5 rounded-full shadow-2xl flex items-center space-x-2 transition-all duration-300 opacity-0 pointer-events-none z-50">
+        <i class="fa-solid fa-circle-info text-neon"></i>
+        <span id="toast-text">Notification message</span>
+    </div>
+
+    <!-- MAIN JAVASCRIPT LOGIC -->
     <script>
-        const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLScbeALgbYS6B_cNzK4tJ8mCmgWUMBpuBHo9z0EA-3zNs9kLdg/viewform?usp=publish-editor";
-        
-        // Mavzular ro'yxati (Barcha 80 ta mavzu uchun namuna)
-        const totalTopics = 80;
-        
-        function getProgress() {
-            const saved = localStorage.getItem('german_roadmap_progress');
-            if (saved) return JSON.parse(saved);
-            
-            // Birinchi marta kirganda faqat 1-mavzu ochiq bo'ladi
-            return {
-                unlockedTopic: 1,
-                unlockTime: null
-            };
+        const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLScbeALgbYS6B_cNzK4tJ8mCmgWUMBpuBHo9z0EA-3zNs9kLdg/viewform";
+
+        const tg = window.Telegram?.WebApp;
+        if (tg) {
+            tg.ready();
+            tg.expand();
+            tg.setHeaderColor('#121214');
         }
 
-        function saveProgress(data) {
-            localStorage.setItem('german_roadmap_progress', JSON.stringify(data));
-        }
-
-        function render() {
-            const container = document.getElementById('roadmap-container');
-            container.innerHTML = '';
-            
-            let progress = getProgress();
-            const now = Date.now();
-
-            // 24 soat o'tgan bo'lsa keyingi mavzuni ochish
-            if (progress.unlockTime && now >= progress.unlockTime) {
-                progress.unlockedTopic += 1;
-                progress.unlockTime = null;
-                saveProgress(progress);
-            }
-
-            for (let i = 1; i <= totalTopics; i++) {
-                const card = document.createElement('div');
-                card.className = `topic-card ${i > progress.unlockedTopic ? 'locked' : ''}`;
-
-                let content = `<div class="topic-title">
-                    <span>Mavzu ${i}</span>
-                    <span>${i <= progress.unlockedTopic ? '🔓 Ochiq' : '🔒 Yopiq'}</span>
-                </div>`;
-
-                if (i === progress.unlockedTopic) {
-                    content += `<a href="${formUrl}" target="_blank" class="btn-send">Send homework</a>`;
-                    
-                    if (progress.unlockTime) {
-                        const remaining = Math.max(0, Math.ceil((progress.unlockTime - now) / 1000));
-                        const hours = Math.floor(remaining / 3600);
-                        const mins = Math.floor((remaining % 3600) / 60);
-                        content += `<div class="timer-box">
-                            <span>Keyingi mavzu ochilishiga:</span>
-                            <strong>${hours}s ${mins}m</strong>
-                        </div>`;
-                    }
-                } else if (i < progress.unlockedTopic) {
-                    content += `<div style="color: var(--accent-green); font-size: 13px;">✅ Tamomlangan</div>`;
-                } else {
-                    content += `<button class="btn-send btn-disabled">Send homework</button>`;
-                }
-
-                card.innerHTML = content;
-                container.appendChild(card);
-            }
-        }
-
-        // Telegram WebApp sozlamalari
-        if (window.Telegram && window.Telegram.WebApp) {
-            window.Telegram.WebApp.ready();
-            window.Telegram.WebApp.expand();
-        }
-
-        render();
-        setInterval(render, 60000); // Har daqiqada taymerni yangilash
-    </script>
-</body>
-</html>
+        const RAW_TOPICS = [
+            "Ich, du, er sie, es, wir, ihr sie/Sie – Personalpronomen",
+            "Ich komme, du kommst – Verbkonjugation Präsens",
+            "Ich bin, du hast, er möchte – sein, haben, möchten",
+            "Ich esse wenig, aber du isst viel – Unregelmäßige Verben",
+            "Ich muss, ich kann, ich will – Modalverben",
+            "Kann ich oder muss ich? – Gebrauch der Modalverben",
+            "Ich kaufe im Supermarkt ein – Trennbare Verben",
+            "Helfen Sie mir! – Imperativ",
+            "Gestern habe ich gelernt – Perfekt mit haben",
+            "Er ist nach Hause gegangen – Perfekt mit sein",
+            "Ich hatte, er war – Präteritum von sein und haben",
+            "Es war einmal – Präteritum der regelmäßigen Verben",
+            "Er gab mir ein Buch – Präteritum der unregelmäßigen Verben",
+            "Ich werde lernen – Futur I",
+            "Ich wurde informiert – Passiv Präsens",
+            "Das Haus wurde gebaut – Passiv Präteritum",
+            "Wenn ich reich wäre... – Konjunktiv II (Wunsch)",
+            "Er sagte, er habe Zeit – Konjunktiv I (Indirekte Rede)",
+            "Ich habe mich gewaschen – Reflexive Verben",
+            "Wir kennen uns – Reziproke Verben",
+            "Ein Mann, eine Frau, ein Kind – Artikel (der, die, das)",
+            "Kein Mann, keine Frau – Negationsartikel",
+            "Mein Buch, dein Stift – Possessivartikel",
+            "Dieser Mann, dieses Buch – Demonstrativpronomen",
+            "Wer, was, wo, wann? – W-Fragen",
+            "Kommst du heute? – Ja/Nein-Fragen",
+            "Die Männer, die Frauen – Pluralformen",
+            "Der Hund des Mannes – Genitiv",
+            "Ich sehe den Hund – Akkusativ",
+            "Ich helfe dem Mann – Dativ",
+            "Den Tisch, dem Tisch – Kasusübersicht",
+            "Ein schöner Tag – Adjektivdeklination (bestimmt)",
+            "Schöner Tag, schönes Wetter – Adjektivdeklination (unbestimmt)",
+            "Kalter Kaffee – Adjektivdeklination (ohne Artikel)",
+            "Schnell, schneller, am schnellsten – Komparativ & Superlativ",
+            "So groß wie, größer als – Vergleiche",
+            "Ich, mich, mir – Pronomen im Kasus",
+            "Jemand, niemand, etwas – Indefinitpronomen",
+            "Der Mann, der dort steht – Relativpronomen",
+            "Das Buch, das ich lese – Relativsätze im Akkusativ",
+            "Aus, bei, mit, nach, seit, von, zu – Präpositionen mit Dativ",
+            "Durch, für, gegen, ohne, um – Präpositionen mit Akkusativ",
+            "An, auf, hinter, in, neben, über, unter, vor, zwischen – Wechselpräpositionen",
+            "Warten auf, denken an – Verben mit Präpositionen",
+            "Worauf wartest du? Darauf! – Pronominaladverbien",
+            "Heute, gestern, morgen – Temporaladverbien",
+            "Hier, dort, überall – Lokaladverbien",
+            "Deshalb, trotzdem – Kausal- und Konzessivadverbien",
+            "Sehr, ziemlich, fast – Gradadverbien",
+            "Ich komme, weil ich Zeit habe – Kausalsätze (weil, da)",
+            "Ich lerne Deutsch, um zu arbeiten – Finalssätze (um...zu)",
+            "Wenn es regnet, bleibe ich zu Hause – Konditionalsätze (wenn)",
+            "Obwohl es regnet, gehe ich spazieren – Konzessivsätze (obwohl)",
+            "Er sagte, dass er kommt – Dass-Sätze",
+            "Ich weiß nicht, ob er kommt – Indire
