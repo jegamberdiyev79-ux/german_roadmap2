@@ -137,7 +137,7 @@
                 </span>
             </div>
 
-            <!-- Vocab Packs List Container -->
+            <!-- Vocab Packs List Container (Fixed visibility & scroll) -->
             <div id="vocab-packs-list" class="space-y-2.5 pb-6"></div>
         </div>
     </main>
@@ -370,7 +370,7 @@
             { id: 41, name: "Hauptsätze verbinden (Position 1)", detail: "Deshalb, sonst, dann, danach" },
             { id: 42, name: "Nebensätze", detail: "Weil, dass und wenn" },
             { id: 43, name: "Positionsadverbien und Direktionaladverbien", detail: "Ich bin da. Kommst du auch dahin?" },
-            { id: 44, name: "Partikeln", detail: "Was heißt das denn?" },
+            { id: 44, name: "Partikeln", detail: "What heißt das denn?" },
             { id: 45, name: "Komposita", detail: "Kinderarzt oder Arztkinder?" },
             { id: 46, name: "Aus Wörtern neue Wörter machen", detail: "-chen, -lein, -er, -in, -ung" },
             { id: 47, name: "Zusammengesetzte Verben", detail: "Ich bin dann mal weg" },
@@ -409,7 +409,7 @@
             { id: 80, name: "Partizip 1 als Adjektiv", detail: "Singende Vögel und fliegende Fische" }
         ];
 
-        // 50 ta to'plamni avtomatik yaratamiz (har birida 20 tadan so'z, jami ~1000 ta so'z uchun mukammal baza)
+        // 50 ta to'plam
         const VOCAB_PACKS = [];
         for (let i = 1; i <= 50; i++) {
             VOCAB_PACKS.push({
@@ -425,7 +425,8 @@
                 })
             });
         }
-        // Aniq 1-to'plamga PDF dagi real so'zlarni beramiz
+
+        // 1-to'plamga real so'zlarni kiritamiz
         VOCAB_PACKS[0].words = [
             { de: "Alphabet", uz: "alifbo", icon: "fa-font" },
             { de: "Hallo", uz: "salom", icon: "fa-hand" },
@@ -514,6 +515,8 @@
                 viewVocab.classList.remove('hidden');
                 viewGrammar.classList.add('hidden');
                 headerSub.innerText = "Vocabulary Packs & 20/20 Test";
+                // Majburiy qayta render qilib ko'rsatish
+                renderVocabPacks();
             }
         }
 
