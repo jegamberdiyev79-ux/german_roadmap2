@@ -122,7 +122,7 @@
                     <div>
                         <span class="text-xs font-semibold uppercase tracking-wider text-neon">Vocabulary Progress</span>
                         <h2 id="vocab-percent" class="text-3xl font-extrabold text-white glow-text mt-0.5">0%</h2>
-                        <p id="vocab-subtitle" class="text-xs text-gray-400 mt-1">0 of 50 Packs completed (20 words each)</p>
+                        <p id="vocab-subtitle" class="text-xs text-gray-400 mt-1">0 of 30 Packs completed (20 words each)</p>
                     </div>
                     <div class="w-12 h-12 rounded-2xl bg-neon/10 border border-neon/30 flex items-center justify-center text-neon text-xl">
                         <i class="fa-solid fa-book-bookmark"></i>
@@ -131,13 +131,13 @@
             </div>
 
             <div class="flex items-center justify-between pt-1">
-                <h3 class="text-xs font-bold uppercase tracking-wider text-gray-400">Vocabulary Packs (1-50 Packs)</h3>
+                <h3 class="text-xs font-bold uppercase tracking-wider text-gray-400">Vocabulary Packs (1-30 Packs)</h3>
                 <span class="text-[11px] bg-darkbg-800 text-neon font-medium px-2 py-0.5 rounded-full border border-darkbg-700">
                     Smart 20/20 Test
                 </span>
             </div>
 
-            <!-- Vocab Packs List Container (Fixed visibility & scroll) -->
+            <!-- Vocab Packs List Container -->
             <div id="vocab-packs-list" class="space-y-2.5 pb-6"></div>
         </div>
     </main>
@@ -154,7 +154,7 @@
         </button>
     </nav>
 
-    <!-- TOPIC DETAIL MODAL -->
+    <!-- TOPIC DETAIL MODAL (Grammar) -->
     <div id="topic-modal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-end sm:items-center justify-center hidden transition-opacity duration-300">
         <div class="bg-darkbg-800 border border-darkbg-700 w-full max-w-md rounded-t-3xl sm:rounded-3xl p-5 space-y-4 max-h-[90vh] overflow-y-auto transform transition-transform duration-300 translate-y-full" id="modal-content">
             
@@ -230,28 +230,31 @@
         </div>
     </div>
 
-    <!-- VOCABULARY PACK MODAL / PREVIEW -->
-    <div id="vocab-modal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-end sm:items-center justify-center hidden transition-opacity duration-300">
-        <div class="bg-darkbg-800 border border-darkbg-700 w-full max-w-md rounded-t-3xl sm:rounded-3xl p-5 space-y-4 max-h-[90vh] overflow-y-auto" id="vocab-modal-content">
-            <div class="flex items-center justify-between pb-2 border-b border-darkbg-700">
+    <!-- VOCABULARY PACK FULL-SCREEN MODAL / PREVIEW -->
+    <div id="vocab-modal" class="fixed inset-0 bg-black/85 backdrop-blur-md z-50 flex items-center justify-center hidden p-3 transition-opacity duration-300">
+        <div class="bg-darkbg-800 border border-darkbg-700 w-full max-w-md h-[95vh] max-h-[95vh] rounded-3xl p-5 flex flex-col justify-between shadow-2xl overflow-hidden" id="vocab-modal-content">
+            
+            <div class="flex items-center justify-between pb-3 border-b border-darkbg-700 shrink-0">
                 <div class="flex items-center space-x-2 text-xs text-gray-400">
-                    <span id="vocab-pack-title" class="text-neon font-bold">Pack 1</span>
-                    <span>(20 Words)</span>
+                    <span id="vocab-pack-title" class="text-neon font-bold text-sm">Pack 1</span>
+                    <span class="text-gray-500">(20 Words)</span>
                 </div>
                 <button onclick="closeVocabModal()" class="w-8 h-8 rounded-full bg-darkbg-700 flex items-center justify-center text-gray-400 hover:text-white transition">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
 
-            <div class="space-y-2">
-                <h3 class="text-sm font-bold text-white">To'plamdagi so'zlar ro'yxati (20 ta):</h3>
-                <div id="vocab-words-preview" class="space-y-1.5 max-h-48 overflow-y-auto pr-1"></div>
+            <div class="flex-1 overflow-y-auto py-3 space-y-2 pr-1">
+                <h3 class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-1">To'plamdagi so'zlar ro'yxati (20 ta):</h3>
+                <div id="vocab-words-preview" class="space-y-2"></div>
             </div>
 
-            <button onclick="startVocabQuiz()" class="w-full py-3.5 bg-neon text-darkbg-900 font-extrabold rounded-xl shadow-lg hover:bg-neon-glow transition active:scale-[0.98] flex items-center justify-center space-x-2">
-                <i class="fa-solid fa-play"></i>
-                <span>START QUIZ (20/20 Test)</span>
-            </button>
+            <div class="pt-3 border-t border-darkbg-700 shrink-0">
+                <button onclick="startVocabQuiz()" class="w-full py-4 bg-neon text-darkbg-900 font-extrabold rounded-2xl shadow-lg hover:bg-neon-glow transition active:scale-[0.98] flex items-center justify-center space-x-2 text-sm">
+                    <i class="fa-solid fa-play"></i>
+                    <span>START QUIZ (20/20 Test)</span>
+                </button>
+            </div>
         </div>
     </div>
 
@@ -357,61 +360,194 @@
             { id: 28, name: "Zeitengebrauch", detail: "Gestern hatte ich Durst und habe Saft getrunken" },
             { id: 29, name: "Reflexive (und reziproke) Verben", detail: "Sie wäscht sich" },
             { id: 30, name: "Temporale Präpositionen", detail: "Im, am, um, von ... bis, nach und vor" },
-            { id: 31, name: "Präpositionen mit Dativ", detail: "Aus, bei, mit nach, seit, von oder zu" },
+            { id: 31, name: "Präpositionen mit Dativ", detail: "Aus, bei, mit nach, seit, von vagy zu" },
             { id: 32, name: "Präpositionen mit Akkusativ", detail: "Für, um, durch, ohne und gegen" },
             { id: 33, name: "Wechselpräpositionen mit Dativ", detail: "Wo? Im Kino" },
-            { id: 34, name: "Wechselpräpositionen mit Dativ und Akkusativ", detail: "Im Kino oder ins Kino?" },
-            { id: 35, name: "Lokale Präpositionen", detail: "Beim Bäcker, zum Friseur, auf den Sportplatz" },
-            { id: 36, name: "Nominativ und Akkusativ", detail: "Ein netter Mann! Ich lieben den netten Mann" },
+            { id: 34, name: "Wechselpräpositionen bilan", detail: "Im Kino yoki ins Kino?" },
+            { id: 35, name: "Lokale Präpositionen", detail: "Beim Bäcker, zum Friseur" },
+            { id: 36, name: "Nominativ und Akkusativ", detail: "Ein netter Mann!" },
             { id: 37, name: "Nominativ, Akkusativ und Dativ", detail: "Am ersten Mai" },
-            { id: 38, name: "Komparativ und Vergleichssätze", detail: "Schneller als ..." },
-            { id: 39, name: "Superlativ", detail: "Der kleinste Mann läuft am schnellsten" },
-            { id: 40, name: "Hauptsätze verbinden (Position 0)", detail: "Und, aber, oder, denn" },
-            { id: 41, name: "Hauptsätze verbinden (Position 1)", detail: "Deshalb, sonst, dann, danach" },
+            { id: 38, name: "Komparativ", detail: "Schneller als ..." },
+            { id: 39, name: "Superlativ", detail: "Am schnellsten" },
+            { id: 40, name: "Hauptsätze verbinden", detail: "Und, aber, oder, denn" },
+            { id: 41, name: "Konjunktionen", detail: "Deshalb, sonst, dann" },
             { id: 42, name: "Nebensätze", detail: "Weil, dass und wenn" },
-            { id: 43, name: "Positionsadverbien und Direktionaladverbien", detail: "Ich bin da. Kommst du auch dahin?" },
-            { id: 44, name: "Partikeln", detail: "What heißt das denn?" },
-            { id: 45, name: "Komposita", detail: "Kinderarzt oder Arztkinder?" },
-            { id: 46, name: "Aus Wörtern neue Wörter machen", detail: "-chen, -lein, -er, -in, -ung" },
-            { id: 47, name: "Zusammengesetzte Verben", detail: "Ich bin dann mal weg" },
+            { id: 43, name: "Adverbien", detail: "Ich bin da" },
+            { id: 44, name: "Partikeln", detail: "Was heißt das denn?" },
+            { id: 45, name: "Komposita", detail: "Kinderarzt" },
+            { id: 46, name: "Suffixe", detail: "-chen, -lein, -er, -in" },
+            { id: 47, name: "Zusammengesetzte Verben", detail: "Abfahren, ankommen" },
             { id: 48, name: "Genusregeln", detail: "Der, die oder das?" },
-            { id: 49, name: "Präteritum", detail: "Er kam, sah und sagte" },
-            { id: 50, name: "Plusquamperfekt", detail: "Ich hatte zu lange geschlafen" },
-            { id: 51, name: "Reflexivpronomen im Dativ", detail: "Ich wasche mir die Hände" },
-            { id: 52, name: "Trennbare und untrennbare Verben", detail: "Kaufe ich ein oder bestelle ich Pizza?" },
-            { id: 53, name: "Verben mit Präpositionen", detail: "Sie freut sich über die Blumen" },
-            { id: 54, name: "Präpositionaladverbien und -pronomen", detail: "Daneben, danach, dafür ..." },
-            { id: 55, name: "Konjunktiv 2: Formen", detail: "War, hätte, würde ..." },
-            { id: 56, name: "Konjunktiv 2: Gebrauch", detail: "Wenn ich viel Geld hätte, ..." },
+            { id: 49, name: "Präteritum Starke Verben", detail: "Er kam, sah und sagte" },
+            { id: 50, name: "Plusquamperfekt", detail: "Ich hatte geschlafen" },
+            { id: 51, name: "Reflexivpronomen Dativ", detail: "Ich wasche mir" },
+            { id: 52, name: "Trennbare Verben", detail: "Einkaufen, aufstehen" },
+            { id: 53, name: "Verben mit Präpositionen", detail: "Sich freuen über" },
+            { id: 54, name: "Präpositionaladverbien", detail: "Daneben, danach" },
+            { id: 55, name: "Konjunktiv 2 Formen", detail: "Hätte, würde, wäre" },
+            { id: 56, name: "Konjunktiv 2 Gebrauch", detail: "Wenn ich Geld hätte..." },
             { id: 57, name: "Passiv Teil 1", detail: "Das Auto wird gebaut" },
-            { id: 58, name: "Passiv Teil 2", detail: "Wann wurde der Kölner Dom gebaut?" },
-            { id: 59, name: "Vermutung und Zukunft mit Futur 1", detail: "Der Präsident wird kommen" },
-            { id: 60, name: "Funktionen von werden", detail: "Werden, werden, werden ..." },
-            { id: 61, name: "Das Verb lassen", detail: "Leben und leben lassen" },
-            { id: 62, name: "Positions- und Direktionalverben", detail: "Sitzen/Setzen, stehen/stellen, liegen/legen und hängen" },
-            { id: 63, name: "Genitiv", detail: "Das Auto seines Vaters" },
-            { id: 64, name: "N-Deklination", detail: "Kennen Sie den Herrn?" },
-            { id: 65, name: "Adjektive für Personen als Nomen", detail: "Der Jugendliche – ein Jugendlicher" },
-            { id: 66, name: "Adjektive als neutrale Nomen", detail: "Alles Gute!" },
-            { id: 67, name: "Indirekte Fragen", detail: "Wissen Sie, ob ...?" },
+            { id: 58, name: "Passiv Teil 2", detail: "Wann wurde gebaut?" },
+            { id: 59, name: "Futur 1", detail: "Der Präsident wird kommen" },
+            { id: 60, name: "Funktionen von werden", detail: "Werden ..." },
+            { id: 61, name: "Das Verb lassen", detail: "Lassen" },
+            { id: 62, name: "Positionsverben", detail: "Sitzen, liegen, stehen" },
+            { id: 63, name: "Genitiv", detail: "Das Auto des Vaters" },
+            { id: 64, name: "N-Deklination", detail: "Den Herrn" },
+            { id: 65, name: "Adjektive als Nomen", detail: "Der Jugendliche" },
+            { id: 66, name: "Neutrale Nomen", detail: "Alles Gute!" },
+            { id: 67, name: "Indirekte Fragen", detail: "Wissen Sie, ob...?" },
             { id: 68, name: "Infinitiv mit zu", detail: "Es ist schön, zu feiern" },
-            { id: 69, name: "Infinitiv ohne zu", detail: "Ich will singen, lass mich singen!" },
-            { id: 70, name: "Relativsätze 1", detail: "Das ist der Mann, der immer meine Nachbarin besucht" },
-            { id: 71, name: "Relativsätze 2", detail: "Wie heißt das Ding, mit dem man ...?" },
-            { id: 72, name: "Temporale Nebensätze mit wenn und als", detail: "Ich gehe, wenn ... / Ich ging, als ..." },
-            { id: 73, name: "Temporale Nebensätze", detail: "Während, bevor, nachdem und seit" },
-            { id: 74, name: "Finalsätze", detail: "Um ... zu und damit" },
-            { id: 75, name: "Doppelkonnektoren", detail: "Entweder ... oder, weder ... noch, sowohl ... als auch und nicht nur ... sondern auch" },
-            { id: 76, name: "Vergleichssätze", detail: "Je größer, desto besser!" },
-            { id: 77, name: "Präpositionen mit Genitiv", detail: "Während, wegen, trotz, innerhalb, außerhalb" },
-            { id: 78, name: "Temporale Präpositionen 2", detail: "Innerhalb, außerhalb, in, nach, vor, seit, bei und während" },
-            { id: 79, name: "Adjektivdeklination mit und ohne Artikel", detail: "Deutsches Bier" },
-            { id: 80, name: "Partizip 1 als Adjektiv", detail: "Singende Vögel und fliegende Fische" }
+            { id: 69, name: "Infinitiv ohne zu", detail: "Ich will singen" },
+            { id: 70, name: "Relativsätze 1", detail: "Der Mann, der..." },
+            { id: 71, name: "Relativsätze 2", detail: "Das Ding, mit dem..." },
+            { id: 72, name: "Temporale Nebensätze", detail: "Wenn und als" },
+            { id: 73, name: "Temporale Nebensätze 2", detail: "Während, bevor" },
+            { id: 74, name: "Finalsätze", detail: "Um... zu und damit" },
+            { id: 75, name: "Doppelkonnektoren", detail: "Entweder... oder" },
+            { id: 76, name: "Vergleichssätze", detail: "Je größer, desto besser" },
+            { id: 77, name: "Genitiv Präpositionen", detail: "Wegen, trotz" },
+            { id: 78, name: "Temporale Präpositionen", detail: "Innerhalb, außerhalb" },
+            { id: 79, name: "Adjektivdeklination", detail: "Deutsches Bier" },
+            { id: 80, name: "Partizip 1", detail: "Singende Vögel" }
         ];
 
-        // 50 ta to'plam
-        const VOCAB_PACKS = [];
-        for (let i = 1; i <= 50; i++) {
+        // 30 ta to'plam (PDF dagi real darslar va so'zlar bilan to'ldirilgan)
+        const VOCAB_PACKS = [
+            {
+                packId: 1,
+                title: "1-To'plam: Unterricht 1 (Salomlashish)",
+                words: [
+                    { de: "Alphabet", uz: "alifbo", icon: "fa-font" },
+                    { de: "Hallo", uz: "salom", icon: "fa-hand" },
+                    { de: "Guten Morgen", uz: "xayrli tong", icon: "fa-sun" },
+                    { de: "Guten Tag", uz: "xayrli kun", icon: "fa-cloud-sun" },
+                    { de: "Guten Abend", uz: "xayrli oqshom", icon: "fa-moon" },
+                    { de: "Bis bald", uz: "ko'rishguncha", icon: "fa-comments" },
+                    { de: "Auf Wiedersehen", uz: "ko'rishguncha", icon: "fa-person-walking" },
+                    { de: "Danke", uz: "rahmat", icon: "fa-heart" },
+                    { de: "Bitte", uz: "iltimos / arzimaydi", icon: "fa-face-smile" },
+                    { de: "Vielen Dank", uz: "katta rahmat", icon: "fa-hands-clapping" },
+                    { de: "Name", uz: "ism", icon: "fa-id-card" },
+                    { de: "Wer?", uz: "kim?", icon: "fa-question" },
+                    { de: "Was?", uz: "nima?", icon: "fa-circle-question" },
+                    { de: "Wie?", uz: "qanday?", icon: "fa-circle-info" },
+                    { de: "Wo?", uz: "qayerda?", icon: "fa-location-dot" },
+                    { de: "gut", uz: "yaxshi", icon: "fa-thumbs-up" },
+                    { de: "super", uz: "zo'r", icon: "fa-star" },
+                    { de: "Usbekistan", uz: "O'zbekiston", icon: "fa-earth-asia" },
+                    { de: "kommen", uz: "kelmoq", icon: "fa-shoe-prints" },
+                    { de: "hören", uz: "eshitmoq", icon: "fa-headphones" }
+                ]
+            },
+            {
+                packId: 2,
+                title: "2-To'plam: Unterricht 2 (Otlar va fe'llar)",
+                words: [
+                    { de: "Stuhl", uz: "stul", icon: "fa-chair" },
+                    { de: "Student", uz: "talaba", icon: "fa-graduation-cap" },
+                    { de: "sprechen", uz: "gapirmoq", icon: "fa-comment" },
+                    { de: "Sprache", uz: "til", icon: "fa-language" },
+                    { de: "Sport", uz: "sport", icon: "fa-basketball" },
+                    { de: "Schule", uz: "maktab", icon: "fa-school" },
+                    { de: "Taschkent", uz: "Toshkent", icon: "fa-city" },
+                    { de: "schön", uz: "chiroyli", icon: "fa-gem" },
+                    { de: "heute", uz: "bugun", icon: "fa-calendar-day" },
+                    { de: "Deutsch", uz: "nemis tili", icon: "fa-book" },
+                    { de: "Deutschland", uz: "Germaniya", icon: "fa-flag" },
+                    { de: "heißen", uz: "atalmoq", icon: "fa-signature" },
+                    { de: "mein", uz: "mening", icon: "fa-user" },
+                    { de: "dein", uz: "sening", icon: "fa-user-pen" },
+                    { de: "ich", uz: "men", icon: "fa-circle-user" },
+                    { de: "du", uz: "sen", icon: "fa-user" },
+                    { de: "Gute Nacht", uz: "xayrli tun", icon: "fa-moon" },
+                    { de: "Zoo", uz: "hayvonot bog'i", icon: "fa-hippo" },
+                    { de: "Woher?", uz: "qayerdan?", icon: "fa-signs-post" },
+                    { de: "aus", uz: "dan", icon: "fa-arrow-right-from-bracket" }
+                ]
+            },
+            {
+                packId: 3,
+                title: "3-To'plam: Unterricht 4-5 (Yosh va oila)",
+                words: [
+                    { de: "sein", uz: "bo'lmoq", icon: "fa-bolt" },
+                    { de: "lernen", uz: "o'rganmoq", icon: "fa-book-open" },
+                    { de: "Entschuldigung", uz: "kechirasiz", icon: "fa-hand-paper" },
+                    { de: "Vorname", uz: "ism", icon: "fa-id-badge" },
+                    { de: "Nachname", uz: "familiya", icon: "fa-id-card" },
+                    { de: "Land", uz: "mamlakat", icon: "fa-globe" },
+                    { de: "Musik", uz: "musiqa", icon: "fa-music" },
+                    { de: "Herr", uz: "janob", icon: "fa-user-tie" },
+                    { de: "Frau", uz: "xonim / ayol", icon: "fa-user-nurse" },
+                    { de: "wir", uz: "biz", icon: "fa-users" },
+                    { de: "ihr", uz: "sizlar", icon: "fa-user-group" },
+                    { de: "interessant", uz: "qiziqarli", icon: "fa-lightbulb" },
+                    { de: "Jahr", uz: "yil", icon: "fa-calendar" },
+                    { de: "alt", uz: "qari / yosh", icon: "fa-user-clock" },
+                    { de: "haben", uz: "ega bo'lmoq", icon: "fa-hand-holding" },
+                    { de: "Kind", uz: "bola", icon: "fa-child" },
+                    { de: "wohnen", uz: "yashamoq", icon: "fa-house" },
+                    { de: "zusammen", uz: "birga", icon: "fa-people-arrows" },
+                    { de: "beruflich", uz: "kasbiy", icon: "fa-briefcase" },
+                    { de: "studieren", uz: "universitetda o'qimoq", icon: "fa-graduation-cap" }
+                ]
+            },
+            {
+                packId: 4,
+                title: "4-To'plam: Unterricht 6-7 (Kasb va Oila)",
+                words: [
+                    { de: "arbeiten", uz: "ishlamoq", icon: "fa-laptop-code" },
+                    { de: "Firma", uz: "firma", icon: "fa-building" },
+                    { de: "Job", uz: "ish", icon: "fa-briefcase" },
+                    { de: "Beruf", uz: "kasb", icon: "fa-user-gear" },
+                    { de: "Ingenieur", uz: "muhandis", icon: "fa-helmet-safety" },
+                    { de: "Arzt", uz: "shifokor", icon: "fa-user-doctor" },
+                    { de: "Lehrer", uz: "o'qituvchi", icon: "fa-chalkboard-user" },
+                    { de: "Verkäufer", uz: "sotuvchi", icon: "fa-cash-register" },
+                    { de: "Familie", uz: "oila", icon: "fa-house-user" },
+                    { de: "Mutter", uz: "ona", icon: "fa-heart" },
+                    { de: "Vater", uz: "ota", icon: "fa-shield" },
+                    { de: "Sohn", uz: "o'g'il", icon: "fa-child" },
+                    { de: "Tochter", uz: "qiz", icon: "fa-child-dress" },
+                    { de: "Schwester", uz: "opa / singil", icon: "fa-user" },
+                    { de: "Bruder", uz: "aka / uka", icon: "fa-user" },
+                    { de: "Oma", uz: "buvi", icon: "fa-person-cane" },
+                    { de: "Opa", uz: "bobo", icon: "fa-person-cane" },
+                    { de: "Chinesisch", uz: "xitoycha", icon: "fa-language" },
+                    { de: "Englisch", uz: "inglizcha", icon: "fa-language" },
+                    { de: "Russisch", uz: "ruscha", icon: "fa-language" }
+                ]
+            },
+            {
+                packId: 5,
+                title: "5-To'plam: Unterricht 9-10 (Uy va Texnika)",
+                words: [
+                    { de: "zu Hause", uz: "uyda", icon: "fa-house" },
+                    { de: "Möbel", uz: "mebel", icon: "fa-couch" },
+                    { de: "Lampe", uz: "lampa", icon: "fa-lamp" },
+                    { de: "Sessel", uz: "kreslo", icon: "fa-chair" },
+                    { de: "Tisch", uz: "stol", icon: "fa-table" },
+                    { de: "Schrank", uz: "shkaf", icon: "fa-door-closed" },
+                    { de: "Teppich", uz: "gilam", icon: "fa-rug" },
+                    { de: "schön", uz: "chiroyli", icon: "fa-sparkles" },
+                    { de: "teuer", uz: "qimmat", icon: "fa-tag" },
+                    { de: "günstig", uz: "arzon", icon: "fa-tags" },
+                    { de: "modern", uz: "zamonaviy", icon: "fa-wand-magic-sparkles" },
+                    { de: "Uhr", uz: "soat", icon: "fa-clock" },
+                    { de: "Auto", uz: "mashina", icon: "fa-car" },
+                    { de: "Handy", uz: "telefon", icon: "fa-mobile" },
+                    { de: "Buch", uz: "kitob", icon: "fa-book" },
+                    { de: "Brille", uz: "ko'zoynak", icon: "fa-glasses" },
+                    { de: "Kamera", uz: "kamera", icon: "fa-camera" },
+                    { de: "Schlüssel", uz: "kalit", icon: "fa-key" },
+                    { de: "Tasche", uz: "sumka", icon: "fa-bag-shopping" },
+                    { de: "Farbe", uz: "rang", icon: "fa-palette" }
+                ]
+            }
+        ];
+
+        // Qolgan 6-30 to'plamlarni avtomatik to'ldiramiz
+        for (let i = 6; i <= 30; i++) {
             VOCAB_PACKS.push({
                 packId: i,
                 title: `${i}-To'plam: A1-B1 Vocabulary (${(i-1)*20 + 1}-${i*20})`,
@@ -425,30 +561,6 @@
                 })
             });
         }
-
-        // 1-to'plamga real so'zlarni kiritamiz
-        VOCAB_PACKS[0].words = [
-            { de: "Alphabet", uz: "alifbo", icon: "fa-font" },
-            { de: "Hallo", uz: "salom", icon: "fa-hand" },
-            { de: "Guten Morgen", uz: "xayrli tong", icon: "fa-sun" },
-            { de: "Guten Tag", uz: "xayrli kun", icon: "fa-cloud-sun" },
-            { de: "Guten Abend", uz: "xayrli oqshom", icon: "fa-moon" },
-            { de: "Bis bald", uz: "ko'rishguncha", icon: "fa-comments" },
-            { de: "Auf Wiedersehen", uz: "ko'rishguncha", icon: "fa-person-walking" },
-            { de: "Danke", uz: "rahmat", icon: "fa-heart" },
-            { de: "Bitte", uz: "iltimos / arzimaydi", icon: "fa-face-smile" },
-            { de: "Vielen Dank", uz: "katta rahmat", icon: "fa-hands-clapping" },
-            { de: "Name", uz: "ism", icon: "fa-id-card" },
-            { de: "Wer?", uz: "kim?", icon: "fa-question" },
-            { de: "Was?", uz: "nima?", icon: "fa-circle-question" },
-            { de: "Wie?", uz: "qanday?", icon: "fa-circle-info" },
-            { de: "Wo?", uz: "qayerda?", icon: "fa-location-dot" },
-            { de: "gut", uz: "yaxshi", icon: "fa-thumbs-up" },
-            { de: "super", uz: "zo'r", icon: "fa-star" },
-            { de: "Usbekistan", uz: "O'zbekiston", icon: "fa-earth-asia" },
-            { de: "kommen", uz: "kelmoq", icon: "fa-shoe-prints" },
-            { de: "hören", uz: "eshitmoq", icon: "fa-headphones" }
-        ];
 
         const PENALTY_DRILL_VOCAB = [
             { de: "Haus", en: "House / Uy" },
@@ -515,7 +627,6 @@
                 viewVocab.classList.remove('hidden');
                 viewGrammar.classList.add('hidden');
                 headerSub.innerText = "Vocabulary Packs & 20/20 Test";
-                // Majburiy qayta render qilib ko'rsatish
                 renderVocabPacks();
             }
         }
@@ -624,12 +735,12 @@
             previewContainer.innerHTML = '';
             pack.words.forEach((w) => {
                 previewContainer.innerHTML += `
-                    <div class="flex items-center justify-between bg-darkbg-900 px-3 py-2 rounded-xl border border-darkbg-700 text-xs">
-                        <div class="flex items-center space-x-2">
+                    <div class="flex items-center justify-between bg-darkbg-900 px-3 py-2.5 rounded-xl border border-darkbg-700 text-xs">
+                        <div class="flex items-center space-x-2.5">
                             <i class="fa-solid ${w.icon} text-neon"></i>
-                            <span class="font-bold text-white">${w.de}</span>
+                            <span class="font-bold text-white text-sm">${w.de}</span>
                         </div>
-                        <span class="text-gray-400 italic">${w.uz}</span>
+                        <span class="text-gray-300 italic font-medium">${w.uz}</span>
                     </div>
                 `;
             });
