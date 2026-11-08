@@ -412,11 +412,11 @@
             { id: 80, name: "Partizip 1", detail: "Singende Vögel" }
         ];
 
-        // 30 ta to'plam (PDF dagi real darslar va so'zlar bilan to'ldirilgan)
+        // 30 ta to'plam - Siz bergan barcha real so'zlar bilan to'liq to'ldirildi
         const VOCAB_PACKS = [
             {
                 packId: 1,
-                title: "1-To'plam: Unterricht 1 (Salomlashish)",
+                title: "1-To'plam: Unterricht 1 (Salomlashish va So'zlar)",
                 words: [
                     { de: "Alphabet", uz: "alifbo", icon: "fa-font" },
                     { de: "Hallo", uz: "salom", icon: "fa-hand" },
@@ -442,7 +442,7 @@
             },
             {
                 packId: 2,
-                title: "2-To'plam: Unterricht 2 (Otlar va fe'llar)",
+                title: "2-To'plam: Unterricht 2 & 4 (Otlar va Olmoshlar)",
                 words: [
                     { de: "Stuhl", uz: "stul", icon: "fa-chair" },
                     { de: "Student", uz: "talaba", icon: "fa-graduation-cap" },
@@ -468,99 +468,733 @@
             },
             {
                 packId: 3,
-                title: "3-To'plam: Unterricht 4-5 (Yosh va oila)",
+                title: "3-To'plam: Unterricht 4 & 5 (Olmoshlar va Davlatlar)",
                 words: [
-                    { de: "sein", uz: "bo'lmoq", icon: "fa-bolt" },
-                    { de: "lernen", uz: "o'rganmoq", icon: "fa-book-open" },
-                    { de: "Entschuldigung", uz: "kechirasiz", icon: "fa-hand-paper" },
-                    { de: "Vorname", uz: "ism", icon: "fa-id-badge" },
-                    { de: "Nachname", uz: "familiya", icon: "fa-id-card" },
-                    { de: "Land", uz: "mamlakat", icon: "fa-globe" },
-                    { de: "Musik", uz: "musiqa", icon: "fa-music" },
-                    { de: "Herr", uz: "janob", icon: "fa-user-tie" },
-                    { de: "Frau", uz: "xonim / ayol", icon: "fa-user-nurse" },
-                    { de: "wir", uz: "biz", icon: "fa-users" },
-                    { de: "ihr", uz: "sizlar", icon: "fa-user-group" },
+                    { de: "ihr", uz: "sizlar", icon: "fa-users" },
+                    { de: "er", uz: "u (erkak)", icon: "fa-user" },
+                    { de: "sie", uz: "u (ayol) / ular", icon: "fa-user-nurse" },
+                    { de: "gut", uz: "yaxshi", icon: "fa-thumbs-up" },
+                    { de: "nicht so gut", uz: "yaxshi emas", icon: "fa-thumbs-down" },
+                    { de: "auch", uz: "ham", icon: "fa-plus" },
+                    { de: "aus", uz: "dan", icon: "fa-location-arrow" },
                     { de: "interessant", uz: "qiziqarli", icon: "fa-lightbulb" },
-                    { de: "Jahr", uz: "yil", icon: "fa-calendar" },
-                    { de: "alt", uz: "qari / yosh", icon: "fa-user-clock" },
+                    { de: "Tschüs", uz: "xayr", icon: "fa-hand-wave" },
+                    { de: "die Schweiz", uz: "Shveysariya", icon: "fa-flag" },
+                    { de: "Spanien", uz: "Ispaniya", icon: "fa-flag" },
+                    { de: "Österreich", uz: "Avstriya", icon: "fa-flag" },
+                    { de: "Frankreich", uz: "Fransiya", icon: "fa-flag" },
+                    { de: "das Jahr", uz: "yil", icon: "fa-calendar" },
+                    { de: "Jahre alt", uz: "yosh", icon: "fa-user-clock" },
+                    { de: "alt", uz: "qari", icon: "fa-hourglass" },
                     { de: "haben", uz: "ega bo'lmoq", icon: "fa-hand-holding" },
-                    { de: "Kind", uz: "bola", icon: "fa-child" },
-                    { de: "wohnen", uz: "yashamoq", icon: "fa-house" },
-                    { de: "zusammen", uz: "birga", icon: "fa-people-arrows" },
-                    { de: "beruflich", uz: "kasbiy", icon: "fa-briefcase" },
-                    { de: "studieren", uz: "universitetda o'qimoq", icon: "fa-graduation-cap" }
+                    { de: "das Kind", uz: "bola", icon: "fa-child" },
+                    { de: "keine Kinder", uz: "farzandi yo'q", icon: "fa-ban" },
+                    { de: "wohnen", uz: "yashamoq", icon: "fa-house" }
                 ]
             },
             {
                 packId: 4,
-                title: "4-To'plam: Unterricht 6-7 (Kasb va Oila)",
+                title: "4-To'plam: Unterricht 5 (Yosh, Oila va Kasblar)",
                 words: [
-                    { de: "arbeiten", uz: "ishlamoq", icon: "fa-laptop-code" },
-                    { de: "Firma", uz: "firma", icon: "fa-building" },
-                    { de: "Job", uz: "ish", icon: "fa-briefcase" },
-                    { de: "Beruf", uz: "kasb", icon: "fa-user-gear" },
-                    { de: "Ingenieur", uz: "muhandis", icon: "fa-helmet-safety" },
-                    { de: "Arzt", uz: "shifokor", icon: "fa-user-doctor" },
-                    { de: "Lehrer", uz: "o'qituvchi", icon: "fa-chalkboard-user" },
-                    { de: "Verkäufer", uz: "sotuvchi", icon: "fa-cash-register" },
-                    { de: "Familie", uz: "oila", icon: "fa-house-user" },
-                    { de: "Mutter", uz: "ona", icon: "fa-heart" },
-                    { de: "Vater", uz: "ota", icon: "fa-shield" },
-                    { de: "Sohn", uz: "o'g'il", icon: "fa-child" },
-                    { de: "Tochter", uz: "qiz", icon: "fa-child-dress" },
-                    { de: "Schwester", uz: "opa / singil", icon: "fa-user" },
-                    { de: "Bruder", uz: "aka / uka", icon: "fa-user" },
-                    { de: "Oma", uz: "buvi", icon: "fa-person-cane" },
-                    { de: "Opa", uz: "bobo", icon: "fa-person-cane" },
-                    { de: "Chinesisch", uz: "xitoycha", icon: "fa-language" },
-                    { de: "Englisch", uz: "inglizcha", icon: "fa-language" },
-                    { de: "Russisch", uz: "ruscha", icon: "fa-language" }
+                    { de: "zusammen", uz: "birga", icon: "fa-people-group" },
+                    { de: "ja", uz: "ha", icon: "fa-check" },
+                    { de: "nein", uz: "yo'q", icon: "fa-xmark" },
+                    { de: "aber", uz: "ammo", icon: "fa-code-branch" },
+                    { de: "der Satz", uz: "gap", icon: "fa-align-left" },
+                    { de: "richtig", uz: "to'g'ri", icon: "fa-circle-check" },
+                    { de: "falsch", uz: "xato", icon: "fa-circle-xmark" },
+                    { de: "der Punkt", uz: "ball", icon: "fa-star" },
+                    { de: "die Zahl", uz: "raqam", icon: "fa-arrow-1-9" },
+                    { de: "das Rätsel", uz: "topishmoq", icon: "fa-puzzle-piece" },
+                    { de: "das Interview", uz: "intervyu", icon: "fa-microphone" },
+                    { de: "der Partner", uz: "sherik", icon: "fa-user-group" },
+                    { de: "machen", uz: "qilmoq", icon: "fa-gears" },
+                    { de: "beruflich", uz: "kasbiy", icon: "fa-briefcase" },
+                    { de: "studieren", uz: "universitetda o'qimoq", icon: "fa-graduation-cap" },
+                    { de: "der Wohnort", uz: "yashash joyi", icon: "fa-location-dot" },
+                    { de: "das Alter", uz: "yosh", icon: "fa-id-card" },
+                    { de: "der Familienstand", uz: "oilaviy ahvol", icon: "fa-ring" },
+                    { de: "das Studium", uz: "o'qish", icon: "fa-book-open" },
+                    { de: "die Krankenschwester", uz: "hamshira", icon: "fa-user-nurse" }
                 ]
             },
             {
                 packId: 5,
-                title: "5-To'plam: Unterricht 9-10 (Uy va Texnika)",
+                title: "5-To'plam: Unterricht 5 & 6 (Kasblar va Ish)",
                 words: [
+                    { de: "das Tier", uz: "hayvon", icon: "fa-paw" },
+                    { de: "der Tierarzt", uz: "veterinariya shifokori", icon: "fa-stethoscope" },
+                    { de: "der Schauspieler", uz: "aktyor / aktrisa", icon: "fa-masks-theater" },
+                    { de: "der Sänger", uz: "qo'shiqchi", icon: "fa-music" },
+                    { de: "minus", uz: "minus", icon: "fa-minus" },
+                    { de: "plus", uz: "plus", icon: "fa-plus" },
+                    { de: "geschieden sein", uz: "ajrashgan bo'lmoq", icon: "fa-heart-crack" },
+                    { de: "verheiratet sein", uz: "turmush qurgan bo'lmoq", icon: "fa-ring" },
+                    { de: "der Single", uz: "bo'ydoq / uylanmagan", icon: "fa-user" },
+                    { de: "allein", uz: "yolg'iz", icon: "fa-person" },
+                    { de: "Paketzusteller", uz: "posilka yetkazuvchi", icon: "fa-box" },
+                    { de: "arbeiten", uz: "ishlamoq", icon: "fa-laptop-code" },
+                    { de: "als", uz: "bo'lib", icon: "fa-arrow-right" },
+                    { de: "bei", uz: "da, yonida", icon: "fa-building-user" },
+                    { de: "die Firma", uz: "firma", icon: "fa-building" },
+                    { de: "der Job", uz: "ish", icon: "fa-briefcase" },
+                    { de: "der Beruf", uz: "kasb", icon: "fa-user-gear" },
+                    { de: "Ingenieur", uz: "muhandis", icon: "fa-helmet-safety" },
+                    { de: "Kfz-Mechatroniker", uz: "avtomobil mexatronigi", icon: "fa-wrench" },
+                    { de: "Journalist", uz: "jurnalist", icon: "fa-newspaper" }
+                ]
+            },
+            {
+                packId: 6,
+                title: "6-To'plam: Unterricht 6 & 7 (Kasblar va Oila)",
+                words: [
+                    { de: "Friseur", uz: "soch turmakchi", icon: "fa-scissors" },
+                    { de: "Architekt", uz: "arxitektor", icon: "fa-compass-drafting" },
+                    { de: "Arzt", uz: "shifokor", icon: "fa-user-doctor" },
+                    { de: "Lehrer", uz: "o'qituvchi", icon: "fa-chalkboard-user" },
+                    { de: "Verkäufer", uz: "sotuvchi", icon: "fa-cash-register" },
+                    { de: "Kellner", uz: "ofitsiant", icon: "fa-utensils" },
+                    { de: "sammeln", uz: "yig'moq", icon: "fa-layer-group" },
+                    { de: "Schüler", uz: "o'quvchi", icon: "fa-book-reader" },
+                    { de: "Rentner", uz: "nafaqaxo'r", icon: "fa-person-cane" },
+                    { de: "Pensionist", uz: "pensioner", icon: "fa-person-cane" },
+                    { de: "die Ausbildung", uz: "kasbiy ta'lim", icon: "fa-graduation-cap" },
+                    { de: "das Praktikum", uz: "amaliyot", icon: "fa-user-graduate" },
+                    { de: "jetzt", uz: "hozir", icon: "fa-clock" },
+                    { de: "die Herkunft", uz: "kelib chiqish", icon: "fa-globe" },
+                    { de: "die Familie", uz: "oila", icon: "fa-people-roof" },
+                    { de: "die Mutter", uz: "ona", icon: "fa-heart" },
+                    { de: "der Vater", uz: "ota", icon: "fa-shield" },
+                    { de: "die Eltern", uz: "ota-ona", icon: "fa-users" },
+                    { de: "der Sohn", uz: "o'g'il", icon: "fa-child" },
+                    { de: "die Tochter", uz: "qiz", icon: "fa-child-dress" }
+                ]
+            },
+            {
+                packId: 7,
+                title: "7-To'plam: Unterricht 7 & Tillar",
+                words: [
+                    { de: "die Geschwister", uz: "aka-uka / opa-singil", icon: "fa-users" },
+                    { de: "der Ehemann", uz: "eri", icon: "fa-ring" },
+                    { de: "die Ehefrau", uz: "xotini", icon: "fa-ring" },
+                    { de: "die Schwester", uz: "opa / singil", icon: "fa-user" },
+                    { de: "der Bruder", uz: "aka / uka", icon: "fa-user" },
+                    { de: "der Onkel", uz: "amaki / tog'a", icon: "fa-user-tie" },
+                    { de: "die Tante", uz: "xola / amma", icon: "fa-user" },
+                    { de: "die Oma", uz: "buvi", icon: "fa-person-cane" },
+                    { de: "der Opa", uz: "bobo", icon: "fa-person-cane" },
+                    { de: "die Großeltern", uz: "bobo-buvi", icon: "fa-users" },
+                    { de: "das Enkelkind", uz: "nevara", icon: "fa-child" },
+                    { de: "der Enkel", uz: "o'g'il nevara", icon: "fa-child" },
+                    { de: "die Enkelin", uz: "qiz nevara", icon: "fa-child-dress" },
+                    { de: "der Verwandte", uz: "qarindosh", icon: "fa-user-group" },
+                    { de: "planen", uz: "reja qilmoq", icon: "fa-calendar-check" },
+                    { de: "das Fest", uz: "bayram", icon: "fa-cake-candles" },
+                    { de: "die Liste", uz: "ro'yxat", icon: "fa-list" },
+                    { de: "das Mitglied", uz: "a'zo", icon: "fa-id-badge" },
+                    { de: "ein bisschen", uz: "bir oz", icon: "fa-scale-unbalanced" },
+                    { de: "gar nicht", uz: "umuman", icon: "fa-ban" }
+                ]
+            },
+            {
+                packId: 8,
+                title: "8-To'plam: Tillar va Unterricht 9 (Uy jihozlari)",
+                words: [
+                    { de: "Chinesisch", uz: "xitoycha", icon: "fa-language" },
+                    { de: "Türkisch", uz: "turkcha", icon: "fa-language" },
+                    { de: "Polnisch", uz: "polyakcha", icon: "fa-language" },
+                    { de: "Spanisch", uz: "ispancha", icon: "fa-language" },
+                    { de: "Englisch", uz: "inglizcha", icon: "fa-language" },
+                    { de: "Russisch", uz: "ruscha", icon: "fa-language" },
+                    { de: "Italienisch", uz: "italyancha", icon: "fa-language" },
+                    { de: "Visitenkarte", uz: "tashrif qog'ozi / vizitka", icon: "fa-address-card" },
                     { de: "zu Hause", uz: "uyda", icon: "fa-house" },
-                    { de: "Möbel", uz: "mebel", icon: "fa-couch" },
-                    { de: "Lampe", uz: "lampa", icon: "fa-lamp" },
-                    { de: "Sessel", uz: "kreslo", icon: "fa-chair" },
-                    { de: "Tisch", uz: "stol", icon: "fa-table" },
-                    { de: "Schrank", uz: "shkaf", icon: "fa-door-closed" },
-                    { de: "Teppich", uz: "gilam", icon: "fa-rug" },
-                    { de: "schön", uz: "chiroyli", icon: "fa-sparkles" },
+                    { de: "das Geschäft", uz: "do'kon", icon: "fa-store" },
+                    { de: "die Möbel", uz: "mebel", icon: "fa-couch" },
+                    { de: "das Bild", uz: "rasm", icon: "fa-image" },
+                    { de: "das Bett", uz: "yotoq", icon: "fa-bed" },
+                    { de: "die Lampe", uz: "lampa", icon: "fa-lamp" },
+                    { de: "der Sessel", uz: "kreslo", icon: "fa-chair" },
+                    { de: "das Sofa", uz: "divan", icon: "fa-couch" },
+                    { de: "der Tisch", uz: "stol", icon: "fa-table" },
+                    { de: "der Schrank", uz: "shkaf", icon: "fa-door-closed" },
+                    { de: "der Teppich", uz: "gilam", icon: "fa-rug" },
+                    { de: "das Regal", uz: "javon", icon: "fa-shelves" }
+                ]
+            },
+            {
+                packId: 9,
+                title: "9-To'plam: Unterricht 9 & 10 (Sifatlar va Texnika)",
+                words: [
+                    { de: "das Zimmer", uz: "xona", icon: "fa-door-open" },
+                    { de: "das Hotel", uz: "mehmonxona", icon: "fa-hotel" },
+                    { de: "schön", uz: "chiroyli", icon: "fa-gem" },
                     { de: "teuer", uz: "qimmat", icon: "fa-tag" },
+                    { de: "hässlich", uz: "xunuk", icon: "fa-triangle-exclamation" },
                     { de: "günstig", uz: "arzon", icon: "fa-tags" },
                     { de: "modern", uz: "zamonaviy", icon: "fa-wand-magic-sparkles" },
-                    { de: "Uhr", uz: "soat", icon: "fa-clock" },
-                    { de: "Auto", uz: "mashina", icon: "fa-car" },
-                    { de: "Handy", uz: "telefon", icon: "fa-mobile" },
-                    { de: "Buch", uz: "kitob", icon: "fa-book" },
-                    { de: "Brille", uz: "ko'zoynak", icon: "fa-glasses" },
-                    { de: "Kamera", uz: "kamera", icon: "fa-camera" },
-                    { de: "Schlüssel", uz: "kalit", icon: "fa-key" },
-                    { de: "Tasche", uz: "sumka", icon: "fa-bag-shopping" },
-                    { de: "Farbe", uz: "rang", icon: "fa-palette" }
+                    { de: "praktisch", uz: "qulay", icon: "fa-thumbs-up" },
+                    { de: "klein", uz: "kichik", icon: "fa-magnifying-glass-minus" },
+                    { de: "groß", uz: "katta", icon: "fa-magnifying-glass-plus" },
+                    { de: "finden", uz: "topmoq / hisoblamoq", icon: "fa-magnifying-glass" },
+                    { de: "schauen", uz: "qaramoq", icon: "fa-eye" },
+                    { de: "da", uz: "shu yerda", icon: "fa-location-dot" },
+                    { de: "wie viel?", uz: "qancha?", icon: "fa-question" },
+                    { de: "kosten", uz: "narxida turmoq", icon: "fa-euro-sign" },
+                    { de: "nur", uz: "faqat", icon: "fa-circle-check" },
+                    { de: "wirklich", uz: "rostdan", icon: "fa-face-grin-stars" },
+                    { de: "die Million", uz: "million", icon: "fa-m" },
+                    { de: "der Preis", uz: "narx", icon: "fa-tags" },
+                    { de: "der Euro", uz: "yevro", icon: "fa-euro-sign" }
+                ]
+            },
+            {
+                packId: 10,
+                title: "10-To'plam: Unterricht 10 (Buyumlar va Ranglar)",
+                words: [
+                    { de: "der Cent", uz: "sent", icon: "fa-coins" },
+                    { de: "kennen", uz: "bilmoq / tanimoq", icon: "fa-user-check" },
+                    { de: "die Uhr", uz: "soat", icon: "fa-clock" },
+                    { de: "das Auto", uz: "mashina", icon: "fa-car" },
+                    { de: "das Handy", uz: "telefon", icon: "fa-mobile" },
+                    { de: "das Buch", uz: "kitob", icon: "fa-book" },
+                    { de: "der Bleistift", uz: "qalam", icon: "fa-pencil" },
+                    { de: "die Brille", uz: "ko'zoynak", icon: "fa-glasses" },
+                    { de: "die Flasche", uz: "butilka", icon: "fa-wine-bottle" },
+                    { de: "die Kamera", uz: "kamera", icon: "fa-camera" },
+                    { de: "die Kette", uz: "zanjir", icon: "fa-link" },
+                    { de: "der Kugelschreiber", uz: "ruchka", icon: "fa-pen" },
+                    { de: "der Schlüssel", uz: "kalit", icon: "fa-key" },
+                    { de: "die Tasche", uz: "sumka", icon: "fa-bag-shopping" },
+                    { de: "das Holz", uz: "yog'och / o'tin", icon: "fa-tree" },
+                    { de: "das Papier", uz: "qog'oz", icon: "fa-file" },
+                    { de: "das Metall", uz: "metal", icon: "fa-cube" },
+                    { de: "das Plastik", uz: "plastik", icon: "fa-cubes" },
+                    { de: "das Glas", uz: "shisha", icon: "fa-glass-water" },
+                    { de: "die Farbe", uz: "rang", icon: "fa-palette" }
+                ]
+            },
+            {
+                packId: 11,
+                title: "11-To'plam: Unterricht 10 & Kapitel 8 (Kundalik va Vaqt)",
+                words: [
+                    { de: "weiß", uz: "oq", icon: "fa-circle" },
+                    { de: "gelb", uz: "sariq", icon: "fa-circle" },
+                    { de: "orange", uz: "to'q sariq", icon: "fa-circle" },
+                    { de: "rot", uz: "qizil", icon: "fa-circle" },
+                    { de: "grün", uz: "yashil", icon: "fa-circle" },
+                    { de: "blau", uz: "ko'k", icon: "fa-circle" },
+                    { de: "braun", uz: "jigarrang", icon: "fa-circle" },
+                    { de: "dunkel", uz: "to'q", icon: "fa-moon" },
+                    { de: "hell", uz: "och / yorqin", icon: "fa-sun" },
+                    { de: "schwarz", uz: "qora", icon: "fa-circle" },
+                    { de: "das Schwimmbad", uz: "suv havzasi / basseyn", icon: "fa-person-swimming" },
+                    { de: "das Kino", uz: "kino", icon: "fa-film" },
+                    { de: "das Museum", uz: "muzey", icon: "fa-building-columns" },
+                    { de: "das Theater", uz: "teatr", icon: "fa-masks-theater" },
+                    { de: "das Cafe", uz: "kafe", icon: "fa-mug-hot" },
+                    { de: "das Restaurant", uz: "restoran", icon: "fa-utensils" },
+                    { de: "die Bar", uz: "bar", icon: "fa-champagne-glasses" },
+                    { de: "das Konzert", uz: "konsert", icon: "fa-music" },
+                    { de: "die Ausstellung", uz: "ko'rgazma", icon: "fa-image" },
+                    { de: "heute", uz: "bugun", icon: "fa-calendar-day" }
+                ]
+            },
+            {
+                packId: 12,
+                title: "12-To'plam: Kapitel 8 & 9 (Kunlar va Taomlar)",
+                words: [
+                    { de: "der Morgen", uz: "ertalab", icon: "fa-sun" },
+                    { de: "der Vormittag", uz: "tushlikdan oldingi vaqt", icon: "fa-clock" },
+                    { de: "der Mittag", uz: "tushlik", icon: "fa-utensils" },
+                    { de: "der Nachmittag", uz: "tushlikdan so'ng", icon: "fa-cloud-sun" },
+                    { de: "der Abend", uz: "oqshom", icon: "fa-moon" },
+                    { de: "die Nacht", uz: "tun", icon: "fa-star-and-crescent" },
+                    { de: "der Wochentag", uz: "hafta kuni", icon: "fa-calendar-week" },
+                    { de: "die Woche", uz: "hafta", icon: "fa-calendar" },
+                    { de: "der Montag", uz: "dushanba", icon: "fa-calendar-day" },
+                    { de: "der Dienstag", uz: "seshanba", icon: "fa-calendar-day" },
+                    { de: "der Mittwoch", uz: "chorshanba", icon: "fa-calendar-day" },
+                    { de: "der Donnerstag", uz: "payshanba", icon: "fa-calendar-day" },
+                    { de: "der Freitag", uz: "juma", icon: "fa-calendar-day" },
+                    { de: "der Samstag", uz: "shanba", icon: "fa-calendar-day" },
+                    { de: "der Sonntag", uz: "yakshanba", icon: "fa-calendar-day" },
+                    { de: "das Wochenende", uz: "hafta oxiri", icon: "fa-umbrella-beach" },
+                    { de: "mögen", uz: "yoqtirmoq / ma'qul ko'rmoq", icon: "fa-heart" },
+                    { de: "möchten", uz: "xohlash (iliq so'rov)", icon: "fa-hand-holding-heart" },
+                    { de: "essen", uz: "ovqatlanmoq", icon: "fa-burger" },
+                    { de: "trinken", uz: "ichmoq", icon: "fa-glass-water" }
+                ]
+            },
+            {
+                packId: 13,
+                title: "13-To'plam: Kapitel 9 (Taomlar va Mahsulotlar)",
+                words: [
+                    { de: "Das Mittagessen", uz: "tushlik", icon: "fa-utensils" },
+                    { de: "das Abendessen", uz: "kechki ovqat", icon: "fa-moon" },
+                    { de: "das Getränk", uz: "ichimlik", icon: "fa-glass-water" },
+                    { de: "das Essen", uz: "ovqat", icon: "fa-bowl-food" },
+                    { de: "speise", uz: "taom", icon: "fa-plate-wheat" },
+                    { de: "die Vorspeise", uz: "sho'rva / starter", icon: "fa-bowl-rice" },
+                    { de: "das Hauptgericht", uz: "asosiy taom", icon: "fa-utensils" },
+                    { de: "der Nachtisch", uz: "desert", icon: "fa-ice-cream" },
+                    { de: "der Hamburger", uz: "gamburger", icon: "fa-burger" },
+                    { de: "die Schokolade", uz: "shokolad", icon: "fa-cookie" },
+                    { de: "der Käse", uz: "pishloq", icon: "fa-cheese" },
+                    { de: "der Salat", uz: "salat", icon: "fa-leaf" },
+                    { de: "die Suppe", uz: "sho'rva", icon: "fa-bowl-hot" },
+                    { de: "der Kuchen", uz: "pirog / kek", icon: "fa-cake-candles" },
+                    { de: "der Nusskuchen", uz: "yong'oqli pirog", icon: "fa-cake-candles" },
+                    { de: "der Apfelkuchen", uz: "olma pirogi", icon: "fa-apple-whole" },
+                    { de: "Schokoladenkuchen", uz: "shokoladli pirog", icon: "fa-cake-candles" },
+                    { de: "die Marmelade", uz: "murabbo", icon: "fa-jar" },
+                    { de: "die Butter", uz: "sariyog'", icon: "fa-box-tissue" },
+                    { de: "der Schinken", uz: "kolbasa / jambon", icon: "fa-drumstick-bite" }
+                ]
+            },
+            {
+                packId: 14,
+                title: "14-To'plam: Kapitel 9 & 10 (Ichimliklar va Transport)",
+                words: [
+                    { de: "das Ei", uz: "tuxum", icon: "fa-egg" },
+                    { de: "das Müsli", uz: "musli", icon: "fa-bowl-rice" },
+                    { de: "die Milch", uz: "sut", icon: "fa-bottle-droplet" },
+                    { de: "der Apfelsaft", uz: "olma sharbati", icon: "fa-wine-glass" },
+                    { de: "der Orangensaft", uz: "apelsin sharbati", icon: "fa-wine-glass" },
+                    { de: "das Wasser", uz: "suv", icon: "fa-water" },
+                    { de: "der Ketchup", uz: "ketchup", icon: "fa-bottle-water" },
+                    { de: "die Soße", uz: "sos", icon: "fa-mortar-pestle" },
+                    { de: "die Nudeln", uz: "makaron", icon: "fa-bowl-food" },
+                    { de: "das Würstchen", uz: "kolbasa / sosiska", icon: "fa-hotdog" },
+                    { de: "Pommes frites", uz: "kartoshka fri", icon: "fa-vial" },
+                    { de: "das Huhn", uz: "tovuq", icon: "fa-drumstick-bite" },
+                    { de: "der Reis", uz: "guruch", icon: "fa-bowl-rice" },
+                    { de: "das Eis", uz: "muzqaymoq", icon: "fa-ice-cream" },
+                    { de: "die Vanille", uz: "vanil", icon: "fa-seedling" },
+                    { de: "die Erdbeeren", uz: "qulupnay", icon: "fa-apple-whole" },
+                    { de: "die Kugel", uz: "shar (muzqaymoq)", icon: "fa-circle" },
+                    { de: "die Portion", uz: "porsiya", icon: "fa-plate-wheat" },
+                    { de: "die Sahne", uz: "qaymoq", icon: "fa-whiskey-glass" },
+                    { de: "das Obst", uz: "meva", icon: "fa-apple-whole" }
+                ]
+            },
+            {
+                packId: 15,
+                title: "15-To'plam: Kapitel 10 (Transport va Sayohat)",
+                words: [
+                    { de: "das Stück", uz: "bo'lak", icon: "fa-chart-pie" },
+                    { de: "die Zitrone", uz: "limon", icon: "fa-lemon" },
+                    { de: "Zitronenkuchen", uz: "limonli pirog", icon: "fa-cake-candles" },
+                    { de: "Tomatensalat", uz: "pomidor salati", icon: "fa-leaf" },
+                    { de: "die Kartoffel", uz: "kartoshka", icon: "fa-seedling" },
+                    { de: "besonders", uz: "alohida / o'ziga xos", icon: "fa-star" },
+                    { de: "lecker", uz: "mazali", icon: "fa-face-smile-beam" },
+                    { de: "fit", uz: "sog'lom / mos", icon: "fa-heart-pulse" },
+                    { de: "intelligent", uz: "aqlli", icon: "fa-brain" },
+                    { de: "prima", uz: "juda yaxshi", icon: "fa-thumbs-up" },
+                    { de: "schade", uz: "afsus", icon: "fa-face-frown" },
+                    { de: "guten Appetit", uz: "yoqimli ishtaha", icon: "fa-utensils" },
+                    { de: "der Witz", uz: "hazil", icon: "fa-face-laugh" },
+                    { de: "denken", uz: "o'ylamoq", icon: "fa-lightbulb" },
+                    { de: "perfekt", uz: "mukammal", icon: "fa-circle-check" },
+                    { de: "der Flughafen", uz: "aeroport", icon: "fa-plane-departure" },
+                    { de: "der Flug", uz: "parvoz", icon: "fa-plane" },
+                    { de: "der Abendflug", uz: "kechki parvoz", icon: "fa-plane-arrival" },
+                    { de: "die Reise", uz: "sayohat", icon: "fa-suitcase-rolling" },
+                    { de: "abfliegen", uz: "uchib ketmoq", icon: "fa-plane-departure" }
+                ]
+            },
+            {
+                packId: 16,
+                title: "16-To'plam: Kapitel 10 & 11 (Transport va Ish)",
+                words: [
+                    { de: "starten", uz: "uchmoq / start bermoq", icon: "fa-play" },
+                    { de: "ankommen", uz: "yetib kelmoq", icon: "fa-location-dot" },
+                    { de: "landen", uz: "qo'nmoq", icon: "fa-plane-arrival" },
+                    { de: "abfahren", uz: "ketmoq / yo'lga chiqmoq", icon: "fa-bus" },
+                    { de: "der Verkehr", uz: "transport / harakat", icon: "fa-traffic-light" },
+                    { de: "Verkehrsmittel", uz: "transport vositasi", icon: "fa-bus-simple" },
+                    { de: "das Gepäck", uz: "yuk / bagaj", icon: "fa-suitcase" },
+                    { de: "der Bahnhof", uz: "vokzal / stansiya", icon: "fa-train-subway" },
+                    { de: "die U-Bahn", uz: "metro", icon: "fa-train-tram" },
+                    { de: "das Taxi", uz: "taksi", icon: "fa-taxi" },
+                    { de: "der Bus", uz: "avtobus", icon: "fa-bus" },
+                    { de: "der Zug", uz: "poezd", icon: "fa-train" },
+                    { de: "die Straßenbahn", uz: "tramvay", icon: "fa-train-tram" },
+                    { de: "einsteigen", uz: "chiqmoq (transportga)", icon: "fa-right-to-bracket" },
+                    { de: "aussteigen", uz: "tushmoq (transportdan)", icon: "fa-right-from-bracket" },
+                    { de: "umsteigen", uz: "transportni almashtirmoq", icon: "fa-arrows-rotate" },
+                    { de: "der Kollege", uz: "hamkasb (erkak)", icon: "fa-user-tie" },
+                    { de: "die Kollegin", uz: "hamkasb (ayol)", icon: "fa-user" },
+                    { de: "der Akku", uz: "batareya", icon: "fa-battery-full" },
+                    { de: "die Maschine", uz: "mashina / qurilma", icon: "fa-gears" }
+                ]
+            },
+            {
+                packId: 17,
+                title: "17-To'plam: Kapitel 11 (Dam olish va Uy ishlar)",
+                words: [
+                    { de: "die Stimme", uz: "ovoz", icon: "fa-microphone" },
+                    { de: "verstehen", uz: "tushunmoq", icon: "fa-headset" },
+                    { de: "abholen", uz: "kutib olmoq", icon: "fa-people-pulling" },
+                    { de: "früh", uz: "erta", icon: "fa-sun" },
+                    { de: "kurz", uz: "qisqa", icon: "fa-ruler" },
+                    { de: "hoffentlich", uz: "umid qilamizki", icon: "fa-hands-praying" },
+                    { de: "bis gleich", uz: "tez orada ko'rishguncha", icon: "fa-clock" },
+                    { de: "alles klar", uz: "hammasi aniq", icon: "fa-check-double" },
+                    { de: "freuen", uz: "xursand bo'lmoq", icon: "fa-face-smile" },
+                    { de: "lieber", uz: "yaxshiroq / afzal", icon: "fa-heart" },
+                    { de: "wenig", uz: "kam / oz", icon: "fa-minus" },
+                    { de: "chatten", uz: "chatlashmoq", icon: "fa-comments" },
+                    { de: "anrufen", uz: "telefon qilmoq", icon: "fa-phone" },
+                    { de: "fernsehen", uz: "televizor tomosha qilmoq", icon: "fa-tv" },
+                    { de: "was für", uz: "qanday / qaysi turdagi", icon: "fa-question" },
+                    { de: "natürlich", uz: "albatta", icon: "fa-circle-check" },
+                    { de: "sicher", uz: "xavfsiz / ishonchli", icon: "fa-shield-halved" },
+                    { de: "kaputt", uz: "buzilgan / ishlamaydi", icon: "fa-burst" },
+                    { de: "Gestern", uz: "kecha", icon: "fa-calendar-minus" },
+                    { de: "Danach", uz: "keyin / undan so'ng", icon: "fa-arrow-right" }
+                ]
+            },
+            {
+                packId: 18,
+                title: "18-To'plam: Kapitel 11 & 12 (Shaxslar va Sport)",
+                words: [
+                    { de: "Von ... bis ...", uz: "... dan ... gacha", icon: "fa-arrows-left-right" },
+                    { de: "Spaziergang", uz: "sayr", icon: "fa-person-walking" },
+                    { de: "der Wald", uz: "o'rmon", icon: "fa-tree" },
+                    { de: "Basketball", uz: "basketbol", icon: "fa-basketball" },
+                    { de: "Handball", uz: "handbol", icon: "fa-football" },
+                    { de: "Aufräumen", uz: "tartibga solmoq", icon: "fa-broom" },
+                    { de: "Abwaschen", uz: "idish yuvmoq", icon: "fa-soap" },
+                    { de: "Schlafen", uz: "uxlash", icon: "fa-bed" },
+                    { de: "Hausaufgabe", uz: "uy vazifasi", icon: "fa-book" },
+                    { de: "die Wäsche", uz: "kir yuvish", icon: "fa-shirt" },
+                    { de: "Waschen", uz: "yuvmoq", icon: "fa-hands-bubbles" },
+                    { de: "der Doktor", uz: "shifokor", icon: "fa-user-doctor" },
+                    { de: "Doktorarbeit", uz: "doktorlik dissertatsiyasi", icon: "fa-file-lines" },
+                    { de: "der Kinderarzt", uz: "bolalar shifokori", icon: "fa-stethosocpe" },
+                    { de: "Kursleiter", uz: "kurs rahbari", icon: "fa-chalkboard-user" },
+                    { de: "Kaufen", uz: "sotib olmoq", icon: "fa-cart-shopping" },
+                    { de: "T-shirt", uz: "futbolka", icon: "fa-shirt" },
+                    { de: "die Boutique", uz: "butik", icon: "fa-store" },
+                    { de: "die Mode", uz: "moda", icon: "fa-glasses" },
+                    { de: "der Laden", uz: "do'kon", icon: "fa-shop" }
+                ]
+            },
+            {
+                packId: 19,
+                title: "19-To'plam: Kapitel 12 (Fasllar va Oylar)",
+                words: [
+                    { de: "Geöffnet", uz: "ochiq", icon: "fa-door-open" },
+                    { de: "Geschlossen", uz: "yopiq", icon: "fa-door-closed" },
+                    { de: "das Schild", uz: "belgi / yozuv", icon: "fa-sign-hanging" },
+                    { de: "der Urlaub", uz: "ta'til", icon: "fa-plane" },
+                    { de: "die Ferien", uz: "ta'til (ko'plik)", icon: "fa-umbrella-beach" },
+                    { de: "der Unterricht", uz: "dars", icon: "fa-chalkboard" },
+                    { de: "die Serie", uz: "serial", icon: "fa-tv" },
+                    { de: "der Vogel", uz: "qush", icon: "fa-crow" },
+                    { de: "die Blume", uz: "gul", icon: "fa-flower" },
+                    { de: "der Zahn", uz: "tish", icon: "fa-tooth" },
+                    { de: "die Praxis", uz: "shifoxona / amaliyot", icon: "fa-hospital" },
+                    { de: "das Eiscafe", uz: "muzqaymoq kafesi", icon: "fa-ice-cream" },
+                    { de: "der Chor", uz: "xor", icon: "fa-people-group" },
+                    { de: "Einladen", uz: "taklif qilmoq", icon: "fa-envelope-open-text" },
+                    { de: "das Geschenk", uz: "sovg'a", icon: "fa-gift" },
+                    { de: "der Marathon", uz: "marafon", icon: "fa-person-running" },
+                    { de: "Laufen", uz: "yugurmoq", icon: "fa-person-running" },
+                    { de: "die Radtour", uz: "velosiped sayohati", icon: "fa-bicycle" },
+                    { de: "Wandern", uz: "piyoda sayr qilmoq", icon: "fa-person-hiking" },
+                    { de: "Segeln", uz: "suzish (yELKANLI)", icon: "fa-sailboat" }
+                ]
+            },
+            {
+                packId: 20,
+                title: "20-To'plam: Kapitel 12 (Oylar, Bayramlar va Sayohat)",
+                words: [
+                    { de: "Springen", uz: "sakramoq", icon: "fa-child-reaching" },
+                    { de: "der Herbst", uz: "kuz", icon: "fa-leaf" },
+                    { de: "der Winter", uz: "qish", icon: "fa-snowflake" },
+                    { de: "der Frühling", uz: "bahor", icon: "fa-seedling" },
+                    { de: "der Sommer", uz: "yoz", icon: "fa-sun" },
+                    { de: "Jahreszeit", uz: "fasl", icon: "fa-calendar-days" },
+                    { de: "der Monat", uz: "oy", icon: "fa-calendar" },
+                    { de: "Januar", uz: "yanvar", icon: "fa-calendar-check" },
+                    { de: "Februar", uz: "fevral", icon: "fa-calendar-check" },
+                    { de: "März", uz: "mart", icon: "fa-calendar-check" },
+                    { de: "April", uz: "aprel", icon: "fa-calendar-check" },
+                    { de: "Mai", uz: "may", icon: "fa-calendar-check" },
+                    { de: "Juni", uz: "iyun", icon: "fa-calendar-check" },
+                    { de: "Juli", uz: "iyul", icon: "fa-calendar-check" },
+                    { de: "August", uz: "avgust", icon: "fa-calendar-check" },
+                    { de: "September", uz: "sentabr", icon: "fa-calendar-check" },
+                    { de: "Oktober", uz: "oktyabr", icon: "fa-calendar-check" },
+                    { de: "November", uz: "noyabr", icon: "fa-calendar-check" },
+                    { de: "Dezember", uz: "dekabr", icon: "fa-calendar-check" },
+                    { de: "Geburtstag", uz: "tug'ilgan kun", icon: "fa-cake-candles" }
+                ]
+            },
+            {
+                packId: 21,
+                title: "21-To'plam: Kapitel 13 (Shahar va Bino/Joylar)",
+                words: [
+                    { de: "Weihnachten", uz: "Rojdestvo", icon: "fa-tree" },
+                    { de: "Silvester", uz: "yangi yil", icon: "fa-champagne-glasses" },
+                    { de: "Unterwegs", uz: "yo'lda", icon: "fa-route" },
+                    { de: "Zurückfahren", uz: "qaytib ketmoq", icon: "fa-rotate-left" },
+                    { de: "der Hafen", uz: "port / bandargoh", icon: "fa-anchor" },
+                    { de: "das Schiff", uz: "kema", icon: "fa-ship" },
+                    { de: "das Volksfest", uz: "xalq festivali", icon: "fa-ferris-wheel" },
+                    { de: "Feiern", uz: "bayram qilmoq", icon: "fa-party-horn" },
+                    { de: "die Einladung", uz: "taklifnoma", icon: "fa-envelope" },
+                    { de: "Die Mauer", uz: "devor", icon: "fa-border-all" },
+                    { de: "Die Wohnung", uz: "kvartira", icon: "fa-building" },
+                    { de: "Der Park", uz: "park", icon: "fa-tree" },
+                    { de: "Spielplatz", uz: "o'yin maydonchasi", icon: "fa-icons" },
+                    { de: "Stadt", uz: "shahar", icon: "fa-city" },
+                    { de: "Altstadt", uz: "eski shahar", icon: "fa-building-columns" },
+                    { de: "Kirche", uz: "cherkov", icon: "fa-church" },
+                    { de: "Rathaus", uz: "shahar hokimiyati", icon: "fa-building-flag" },
+                    { de: "Schloss", uz: "saroy", icon: "fa-castle" },
+                    { de: "Brunnen", uz: "favvora", icon: "fa-water" },
+                    { de: "Markt", uz: "bozor", icon: "fa-store" }
+                ]
+            },
+            {
+                packId: 22,
+                title: "22-To'plam: Kapitel 14 & 15 (Yo'nalish va Xonalar)",
+                words: [
+                    { de: "das Kaufhaus", uz: "savdo uyi", icon: "fa-shop" },
+                    { de: "das Warenhaus", uz: "tovar do'koni", icon: "fa-store" },
+                    { de: "der Platz", uz: "maydon", icon: "fa-draw-polygon" },
+                    { de: "die Brücke", uz: "ko'prik", icon: "fa-bridge" },
+                    { de: "der Baum", uz: "daraxt", icon: "fa-tree" },
+                    { de: "das Foto", uz: "rasm / foto", icon: "fa-camera" },
+                    { de: "das Smartphone", uz: "smartfon", icon: "fa-mobile" },
+                    { de: "das Zentrum", uz: "shahar markazi", icon: "fa-location-crosshairs" },
+                    { de: "die Ecke", uz: "burchak", icon: "fa-vector-square" },
+                    { de: "Krankenhaus", uz: "kasalxona", icon: "fa-hospital" },
+                    { de: "die Post", uz: "pochta", icon: "fa-envelope" },
+                    { de: "die Bank", uz: "bank", icon: "fa-building-columns" },
+                    { de: "die Ampel", uz: "svetofor", icon: "fa-traffic-light" },
+                    { de: "die Apotheke", uz: "dorixona", icon: "fa-prescription-bottle-medical" },
+                    { de: "Kindergarten", uz: "bog'cha", icon: "fa-child" },
+                    { de: "geradeaus", uz: "to'g'ri oldinga", icon: "fa-arrow-up" },
+                    { de: "abbiegen", uz: "burilmoq", icon: "fa-arrow-turn-down" },
+                    { de: "das Fenster", uz: "deraza", icon: "fa-window-maximize" },
+                    { de: "die Tür", uz: "eshik", icon: "fa-door-open" },
+                    { de: "die Küche", uz: "oshxona", icon: "fa-utensils" }
+                ]
+            },
+            {
+                packId: 23,
+                title: "23-To'plam: Kapitel 15 (Xonalar, Joylashuv va Moliya)",
+                words: [
+                    { de: "Der Flur", uz: "xoll / koridor", icon: "fa-door-closed" },
+                    { de: "der Gang", uz: "yo'lak / koridor", icon: "fa-ruler-horizontal" },
+                    { de: "Schlafzimmer", uz: "yotoq xonasi", icon: "fa-bed" },
+                    { de: "die Toilette", uz: "hojatxona", icon: "fa-restroom" },
+                    { de: "oben", uz: "yuqorida", icon: "fa-arrow-up" },
+                    { de: "hinten", uz: "orqada", icon: "fa-arrow-down" },
+                    { de: "vorn", uz: "oldida", icon: "fa-arrow-up-long" },
+                    { de: "unten", uz: "pastda", icon: "fa-arrow-down-long" },
+                    { de: "umziehen", uz: "ko'chmoq", icon: "fa-truck-ramp-box" },
+                    { de: "anfangen", uz: "boshlamoq", icon: "fa-play" },
+                    { de: "bezahlen", uz: "to'lamoq", icon: "fa-credit-card" },
+                    { de: "gemütlich", uz: "qulay / shinam", icon: "fa-couch" },
+                    { de: "ordentlich", uz: "tartibli", icon: "fa-square-check" },
+                    { de: "überhaupt", uz: "umuman / aslo", icon: "fa-ban" },
+                    { de: "laut", uz: "baland ovozli", icon: "fa-volume-high" },
+                    { de: "schlecht", uz: "yomon", icon: "fa-thumbs-down" },
+                    { de: "maximal", uz: "maksimal", icon: "fa-up-long" },
+                    { de: "sofort", uz: "darhol", icon: "fa-bolt" },
+                    { de: "inklusive", uz: "kiritilgan", icon: "fa-plus" },
+                    { de: "die Miete", uz: "ijara", icon: "fa-house-user" }
+                ]
+            },
+            {
+                packId: 24,
+                title: "24-To'plam: Kapitel 15 & 16 (Ofis jihozlari va Texnika)",
+                words: [
+                    { de: "Quadratmeter", uz: "kvadrat metr", icon: "fa-ruler-combined" },
+                    { de: "Nebenkosten", uz: "qo'shimcha xarajatlar", icon: "fa-receipt" },
+                    { de: "das Semester", uz: "semestr", icon: "fa-graduation-cap" },
+                    { de: "die Anzeige", uz: "e'lon", icon: "fa-rectangle-ad" },
+                    { de: "der Stock", uz: "qavat", icon: "fa-building" },
+                    { de: "Erdgeschoss", uz: "pastki qavat", icon: "fa-house" },
+                    { de: "der Keller", uz: "podval", icon: "fa-warehouse" },
+                    { de: "die Treppe", uz: "zinapoya", icon: "fa-stairs" },
+                    { de: "Dachgeschoss", uz: "mansard qavat", icon: "fa-house-chimney" },
+                    { de: "möbliert", uz: "mebel bilan jihozlangan", icon: "fa-chair" },
+                    { de: "Traum", uz: "orzu / ideal", icon: "fa-cloud" },
+                    { de: "Teeküche", uz: "choyxona", icon: "fa-mug-hot" },
+                    { de: "Briefumschlag", uz: "konvert", icon: "fa-envelope" },
+                    { de: "der Tacker", uz: "skreper mashinasi", icon: "fa-paperclip" },
+                    { de: "Papierkorb", uz: "qog'oz savati", icon: "fa-trash" },
+                    { de: "Lautsprecher", uz: "karnay", icon: "fa-volume-high" },
+                    { de: "der Locher", uz: "teshiklagich", icon: "fa-circle-dot" },
+                    { de: "der Ordner", uz: "fayl papkasi", icon: "fa-folder-closed" },
+                    { de: "Notizzettel", uz: "eslatma varaqlari", icon: "fa-note-sticky" },
+                    { de: "die Schere", uz: "qaychi", icon: "fa-scissors" }
+                ]
+            },
+            {
+                packId: 25,
+                title: "25-To'plam: Kapitel 16 (Ofis, Uy texnikasi va Ta'mirlash)",
+                words: [
+                    { de: "das Headset", uz: "naushnik", icon: "fa-headphones" },
+                    { de: "Textmarker", uz: "marker", icon: "fa-pen-clip" },
+                    { de: "der Anwalt", uz: "advokat", icon: "fa-user-tie" },
+                    { de: "die Anwältin", uz: "advokat ayol", icon: "fa-user" },
+                    { de: "das Recht", uz: "huquq", icon: "fa-scale-balanced" },
+                    { de: "die Stelle", uz: "ish o'rni", icon: "fa-briefcase" },
+                    { de: "Einzelbüro", uz: "yakka ofis", icon: "fa-building" },
+                    { de: "Empfang", uz: "qabulxona", icon: "fa-bell" },
+                    { de: "die Kantine", uz: "stolovka", icon: "fa-utensils" },
+                    { de: "Konferenz", uz: "konferensiya xonasi", icon: "fa-users-rectangle" },
+                    { de: "der Aufzug", uz: "lift", icon: "fa-elevator" },
+                    { de: "die Dusche", uz: "dush / hojatxona", icon: "fa-shower" },
+                    { de: "Kühlschrank", uz: "muzlatgich", icon: "fa-snowflake" },
+                    { de: "der Fernseher", uz: "televizor", icon: "fa-tv" },
+                    { de: "der Herd", uz: "pech / oshxona plitasi", icon: "fa-fire" },
+                    { de: "Waschmaschine", uz: "kir yuvish mashinasi", icon: "fa-soap" },
+                    { de: "Steckdose", uz: "rozetka", icon: "fa-plug" },
+                    { de: "das Licht", uz: "chiroq / yoritish", icon: "fa-lightbulb" },
+                    { de: "die Klingel", uz: "eshik qo'ng'irog'i", icon: "fa-bell" },
+                    { de: "Handwerker", uz: "ustaxona ishchisi", icon: "fa-wrench" }
+                ]
+            },
+            {
+                packId: 26,
+                title: "26-To'plam: Kapitel 16 & 17 (Ijtimoiy muloqot va Kelajak)",
+                words: [
+                    { de: "reparieren", uz: "ta'mirlash", icon: "fa-screwdriver-wrench" },
+                    { de: "erklären", uz: "tushuntirmoq", icon: "fa-comment-dots" },
+                    { de: "funktionieren", uz: "ishlamoq / faoliyat ko'rsatmoq", icon: "fa-gear" },
+                    { de: "selbst", uz: "o'zi / mustaqil", icon: "fa-user" },
+                    { de: "nervös", uz: "asabiy / hayajonli", icon: "fa-face-flushed" },
+                    { de: "die Angst", uz: "qo'rquv", icon: "fa-face-grimace" },
+                    { de: "los sein", uz: "sodir bo'lmoq", icon: "fa-circle-exclamation" },
+                    { de: "pünktlich", uz: "o'z vaqtida", icon: "fa-clock" },
+                    { de: "verschieben", uz: "boshqa vaqtga surmoq", icon: "fa-calendar-minus" },
+                    { de: "bekommen", uz: "olish / qabul qilmoq", icon: "fa-hand-holding" },
+                    { de: "Vorstellungsgespräch", uz: "ish suhbati", icon: "fa-comments" },
+                    { de: "nach Hause", uz: "uyga", icon: "fa-house-chimney" },
+                    { de: "klappen", uz: "muvaffaqiyatli bo'lish", icon: "fa-thumbs-up" },
+                    { de: "das Training", uz: "mashg'ulot / trening", icon: "fa-dumbbell" },
+                    { de: "das Treffen", uz: "uchrashuv", icon: "fa-handshake" },
+                    { de: "werden", uz: "kelajakda bo'lmoq", icon: "fa-wand-magic-sparkles" },
+                    { de: "wollen", uz: "xohlash", icon: "fa-heart" },
+                    { de: "auf jeden Fall", uz: "albatta / har holda", icon: "fa-check" },
+                    { de: "unbedingt", uz: "albatta, shart", icon: "fa-circle-check" },
+                    { de: "damit", uz: "shuning uchun", icon: "fa-arrow-right-to-bracket" }
+                ]
+            },
+            {
+                packId: 27,
+                title: "27-To'plam: Kapitel 17 & 18 (Kasblar, Moliya va Sog'liq)",
+                words: [
+                    { de: "Astronaut", uz: "kosmonavt", icon: "fa-user-astronaut" },
+                    { de: "Polizist", uz: "politsiyachi", icon: "fa-user-shield" },
+                    { de: "der Profi", uz: "professional", icon: "fa-star" },
+                    { de: "Krankenpfleger", uz: "hamshira", icon: "fa-user-nurse" },
+                    { de: "Pflegefachmann", uz: "malakali tibbiy xodim", icon: "fa-stethoscope" },
+                    { de: "Influencer", uz: "ijtimoiy tarmoq ta'sirli shaxsi", icon: "fa-hashtag" },
+                    { de: "Chef", uz: "rahbar", icon: "fa-user-tie" },
+                    { de: "Koch", uz: "oshpaz", icon: "fa-kitchen-set" },
+                    { de: "gründen", uz: "tashkil qilmoq", icon: "fa-building" },
+                    { de: "das Geld", uz: "pul", icon: "fa-money-bill" },
+                    { de: "verdienen", uz: "daromad olmoq", icon: "fa-sack-dollar" },
+                    { de: "Berufsleben", uz: "ish hayoti", icon: "fa-briefcase" },
+                    { de: "Marketing", uz: "marketing", icon: "fa-chart-line" },
+                    { de: "selbstständig", uz: "mustaqil ish qiluvchi", icon: "fa-user-check" },
+                    { de: "der Abschluss", uz: "bitiruv / diplom", icon: "fa-graduation-cap" },
+                    { de: "die Note", uz: "baho", icon: "fa-check-double" },
+                    { de: "die Freiheit", uz: "erkinlik", icon: "fa-dove" },
+                    { de: "Führerschein", uz: "haydovchilik guvohnomasi", icon: "fa-id-card" },
+                    { de: "heiraten", uz: "uylanish / turmush qurmoq", icon: "fa-ring" },
+                    { de: "die Übung", uz: "mashq", icon: "fa-dumbbell" }
+                ]
+            },
+            {
+                packId: 28,
+                title: "28-To'plam: Kapitel 18 (Sog'liq, Kasallik va Tana)",
+                words: [
+                    { de: "der Schmerz", uz: "og'riq", icon: "fa-face-frown-open" },
+                    { de: "krank", uz: "kasal", icon: "fa-bed-pulse" },
+                    { de: "gesund", uz: "sog'lom", icon: "fa-heart-pulse" },
+                    { de: "Krankheit", uz: "kasallik", icon: "fa-virus" },
+                    { de: "Schnupfen", uz: "shamollash (burun oqishi)", icon: "fa-box-tissue" },
+                    { de: "die Erkältung", uz: "shamollash", icon: "fa-thermometer" },
+                    { de: "der Husten", uz: "yo'tal", icon: "fa-head-side-cough" },
+                    { de: "das Fieber", uz: "isitma", icon: "fa-temperature-high" },
+                    { de: "die Tablette", uz: "tabletka", icon: "fa-pills" },
+                    { de: "Medikament", uz: "dori", icon: "fa-prescription-bottle" },
+                    { de: "die Salbe", uz: "malham", icon: "fa-prescription-bottle-medical" },
+                    { de: "Hustensaft", uz: "yo'tal siropi", icon: "fa-bottle-droplet" },
+                    { de: "der Kopf", uz: "bosh", icon: "fa-user" },
+                    { de: "das Herz", uz: "yurak", icon: "fa-heart" },
+                    { de: "der Körper", uz: "tana", icon: "fa-child" },
+                    { de: "die Brust", uz: "ko'krak", icon: "fa-child" },
+                    { de: "der Bauch", uz: "qorin", icon: "fa-child" },
+                    { de: "der Arm", uz: "qo'l", icon: "fa-child" },
+                    { de: "die Hand", uz: "qo'l panjasi", icon: "fa-hand" },
+                    { de: "das Bein", uz: "olyoq", icon: "fa-person-walking" }
+                ]
+            },
+            {
+                packId: 29,
+                title: "29-To'plam: Kapitel 19 & 20 (Uy ishlari va Kasbiy Muloqot)",
+                words: [
+                    { de: "das Auge", uz: "ko'z", icon: "fa-eye" },
+                    { de: "der Mund", uz: "og'iz", icon: "fa-face-smile" },
+                    { de: "die Nase", uz: "burun", icon: "fa-user" },
+                    { de: "das Ohr", uz: "quloq", icon: "fa-ear-listen" },
+                    { de: "aufstehen", uz: "turmoq", icon: "fa-person" },
+                    { de: "benutzen", uz: "foydalanmoq", icon: "fa-hand-pointer" },
+                    { de: "schicken", uz: "yubormoq", icon: "fa-paper-plane" },
+                    { de: "müde", uz: "charchagan", icon: "fa-face-tired" },
+                    { de: "schlimm", uz: "yomon, og'ir", icon: "fa-triangle-exclamation" },
+                    { de: "weh tun", uz: "og'rimoq", icon: "fa-face-frown" },
+                    { de: "der Haushalt", uz: "ro'zg'or, uy xo'jaligi", icon: "fa-house" },
+                    { de: "der Abfall", uz: "chiqindi", icon: "fa-trash" },
+                    { de: "Spülmaschine", uz: "idish yuvish mashinasi", icon: "fa-soap" },
+                    { de: "das Geschirr", uz: "idish-tovoq", icon: "fa-plate-wheat" },
+                    { de: "putzen", uz: "tozalamoq", icon: "fa-broom" },
+                    { de: "sauber", uz: "toza", icon: "fa-sparkles" },
+                    { de: "schmutzig", uz: "iflos", icon: "fa-recycle" },
+                    { de: "aufmachen", uz: "ochmoq", icon: "fa-door-open" },
+                    { de: "zumachen", uz: "yopmoq", icon: "fa-door-closed" },
+                    { de: "vergessen", uz: "unutmoq", icon: "fa-brain" }
+                ]
+            },
+            {
+                packId: 30,
+                title: "30-To'plam: Kapitel 21 & 22 (Qoidalar, Tabiat va Kiyimlar)",
+                words: [
+                    { de: "der Service", uz: "xizmat", icon: "fa-headset" },
+                    { de: "das Team", uz: "jamoa", icon: "fa-users" },
+                    { de: "der Experte", uz: "ekspert", icon: "fa-user-tie" },
+                    { de: "Psychologe", uz: "psixolog", icon: "fa-user-doctor" },
+                    { de: "das Projekt", uz: "loyiha", icon: "fa-diagram-project" },
+                    { de: "verbessern", uz: "yaxshilamoq", icon: "fa-chart-line" },
+                    { de: "die Werbung", uz: "reklama", icon: "fa-rectangle-ad" },
+                    { de: "verboten", uz: "taqiqlangan", icon: "fa-ban" },
+                    { de: "erlaubt", uz: "ruxsat berilgan", icon: "fa-circle-check" },
+                    { de: "gefährlich", uz: "xavfli", icon: "fa-triangle-exclamation" },
+                    { de: "parken", uz: "park qilmoq", icon: "fa-square-p" },
+                    { de: "der Nachbar", uz: "qo'shni", icon: "fa-user-group" },
+                    { de: "die Kleidung", uz: "kiyim-kechak", icon: "fa-shirt" },
+                    { de: "die Jeans", uz: "jinsi shim", icon: "fa-socks" },
+                    { de: "der Pullover", uz: "sviter", icon: "fa-shirt" },
+                    { de: "das Hemd", uz: "ko'ylak (erkaklar)", icon: "fa-shirt" },
+                    { de: "die Hose", uz: "shim", icon: "fa-socks" },
+                    { de: "der Mantel", uz: "palto", icon: "fa-vest" },
+                    { de: "der Anzug", uz: "kostyum", icon: "fa-user-tie" },
+                    { de: "der Schuh", uz: "oyoq kiyim", icon: "fa-shoe-prints" }
                 ]
             }
         ];
-
-        // Qolgan 6-30 to'plamlarni avtomatik to'ldiramiz
-        for (let i = 6; i <= 30; i++) {
-            VOCAB_PACKS.push({
-                packId: i,
-                title: `${i}-To'plam: A1-B1 Vocabulary (${(i-1)*20 + 1}-${i*20})`,
-                words: Array.from({length: 20}, (_, idx) => {
-                    let wordNum = (i-1)*20 + idx + 1;
-                    return {
-                        de: `Wort${wordNum}`,
-                        uz: `Tarjima${wordNum}`,
-                        icon: "fa-star"
-                    };
-                })
-            });
-        }
 
         const PENALTY_DRILL_VOCAB = [
             { de: "Haus", en: "House / Uy" },
@@ -587,8 +1221,9 @@
         let quizTimerInterval = null;
         let quizTimeLeft = 10;
 
-        window.addEventListener('DOMContentLoaded', () => {
-            loadStateFromStorage();
+        // Telegram Cloud Storage orqali ma'lumotlarni yuklash va saqlash
+        window.addEventListener('DOMContentLoaded', async () => {
+            await loadStateFromStorage();
             renderRoadmap();
             renderVocabPacks();
             updateProgressOverview();
@@ -596,16 +1231,35 @@
         });
 
         function loadStateFromStorage() {
-            const savedState = localStorage.getItem('de_roadmap_app_state');
-            if (savedState) {
-                try { appState = JSON.parse(savedState); } catch (e) {}
-            }
+            return new Promise((resolve) => {
+                if (tg && tg.CloudStorage) {
+                    tg.CloudStorage.getItem('de_roadmap_app_state', (err, value) => {
+                        if (!err && value) {
+                            try {
+                                appState = JSON.parse(value);
+                            } catch (e) {}
+                        }
+                        resolve();
+                    });
+                } else {
+                    const savedState = localStorage.getItem('de_roadmap_app_state');
+                    if (savedState) {
+                        try { appState = JSON.parse(savedState); } catch (e) {}
+                    }
+                    resolve();
+                }
+            });
         }
 
         function saveStateToStorage() {
-            try {
-                localStorage.setItem('de_roadmap_app_state', JSON.stringify(appState));
-            } catch (e) {}
+            const stateString = JSON.stringify(appState);
+            if (tg && tg.CloudStorage) {
+                tg.CloudStorage.setItem('de_roadmap_app_state', stateString, (err, saved) => {});
+            } else {
+                try {
+                    localStorage.setItem('de_roadmap_app_state', stateString);
+                } catch (e) {}
+            }
         }
 
         function switchTab(tab) {
