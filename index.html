@@ -143,8 +143,8 @@
                 <p id="lesson-desc" class="text-xs text-gray-300 leading-relaxed"></p>
             </div>
 
-            <!-- 30-Minute Timer Widget -->
-            <div class="bg-darkbg-900 rounded-2xl p-4 border border-darkbg-700 space-y-3">
+            <!-- TIMER CONTAINER (Faqat bajarilmagan darslar uchun ko'rinadi) -->
+            <div id="timer-container" class="bg-darkbg-900 rounded-2xl p-4 border border-darkbg-700 space-y-3">
                 <div class="flex items-center justify-between text-xs text-gray-400">
                     <span class="flex items-center gap-1.5 font-medium text-gray-300">
                         <i class="fa-regular fa-clock text-neon"></i> Qolgan vaqt
@@ -165,7 +165,7 @@
             </div>
 
             <!-- Primary Actions -->
-            <div class="space-y-2 pt-1">
+            <div id="actions-container" class="space-y-2 pt-1">
                 <button onclick="openGoogleFormHomework()" class="w-full py-3 bg-neon text-darkbg-900 font-bold rounded-xl shadow-lg hover:bg-neon-glow transition active:scale-[0.98] flex items-center justify-center space-x-2">
                     <i class="fa-paper-plane text-darkbg-900"></i>
                     <span>Send homework (Google Forms)</span>
@@ -430,17 +430,25 @@
 
             const statusBadge = document.getElementById('modal-status-badge');
             const completeBtn = document.getElementById('btn-complete');
+            const timerContainer = document.getElementById('timer-container');
+            const actionsContainer = document.getElementById('actions-container');
             const isCompleted = appState.completedTopics.includes(topic.id);
 
             if (isCompleted) {
                 statusBadge.innerText = 'Completed';
                 statusBadge.className = 'text-xs px-2.5 py-1 rounded-md font-semibold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30';
-                completeBtn.classList.add('hidden');
+                
+                // Bajarilgan bo'lsa taymer va tugmalarni yashiramiz, chunki dars allaqachon tugatilgan
+                timerContainer.classList.add('hidden');
+                actionsContainer.classList.add('hidden');
             } else {
                 statusBadge.innerText = 'In Progress';
                 statusBadge.className = 'text-xs px-2.5 py-1 rounded-md font-semibold bg-neon/20 text-neon border border-neon/30';
-                completeBtn.classList.remove('hidden');
                 
+                // Bajarilmagan bo'lsa taymer va tugmalar ko'rsatiladi
+                timerContainer.classList.remove('hidden');
+                actionsContainer.classList.remove('hidden');
+
                 if (appState.homeworkSentMap[topic.id]) {
                     completeBtn.disabled = false;
                     completeBtn.className = 'w-full py-3 bg-emerald-500 hover:bg-emerald-600 text-white font-bold rounded-xl shadow-lg transition active:scale-[0.98] flex items-center justify-center space-x-2';
@@ -448,12 +456,12 @@
                     completeBtn.disabled = true;
                     completeBtn.className = 'w-full py-3 bg-darkbg-700 text-gray-400 font-bold rounded-xl transition active:scale-[0.98] flex items-center justify-center space-x-2 cursor-not-allowed';
                 }
+
+                startTopicTimer(topic.id);
             }
 
             document.getElementById('btn-prev-topic').disabled = topic.id === 1;
             document.getElementById('btn-next-topic').disabled = topic.id === 80;
-
-            startTopicTimer(topic.id);
 
             const modal = document.getElementById('topic-modal');
             const content = document.getElementById('modal-content');
@@ -488,13 +496,10 @@
             }
         }
 
-        // TAYMER XATOSI SHU YERDA TUZATILDI: 
         function startTopicTimer(topicId) {
             if (timerInterval) clearInterval(timerInterval);
             const totalSeconds = 30 * 60;
 
-            // Agar ilgari ushbu mavzu uchun taymer boshlanmagan bo'lsagina yangi vaqt olinadi.
-            // Boshlangan bo'lsa, mavzular orasida o'tib qaytganda reset bo'lmaydi!
             if (!appState.topicTimers[topicId]) {
                 appState.topicTimers[topicId] = Date.now();
                 saveStateToStorage();
