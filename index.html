@@ -79,7 +79,7 @@
     </header>
 
     <!-- Main Container -->
-    <main class="flex-1 px-4 py-4 space-y-4 overflow-y-auto pb-20">
+    <main class="flex-1 px-4 py-4 space-y-4 overflow-y-auto pb-24">
 
         <!-- GRAMMAR VIEW -->
         <div id="view-grammar" class="space-y-4">
@@ -125,7 +125,7 @@
                         <p id="vocab-subtitle" class="text-xs text-gray-400 mt-1">0 of 5 Packs completed (20 words each)</p>
                     </div>
                     <div class="w-12 h-12 rounded-2xl bg-neon/10 border border-neon/30 flex items-center justify-center text-neon text-xl">
-                        <i class="fa-solid fa-language"></i>
+                        <i class="fa-solid fa-book-bookmark"></i>
                     </div>
                 </div>
             </div>
@@ -137,13 +137,13 @@
                 </span>
             </div>
 
-            <!-- Vocab Packs List -->
+            <!-- Vocab Packs List Container -->
             <div id="vocab-packs-list" class="space-y-2.5 pb-6"></div>
         </div>
     </main>
 
     <!-- BOTTOM NAVIGATION BAR -->
-    <nav class="fixed bottom-0 left-0 right-0 max-w-md mx-auto bg-darkbg-900/95 backdrop-blur-md border-t border-darkbg-800 py-2 px-6 z-40 flex items-center justify-around">
+    <nav class="fixed bottom-0 left-0 right-0 max-w-md mx-auto bg-darkbg-900/95 backdrop-blur-md border-t border-darkbg-800 py-2.5 px-6 z-40 flex items-center justify-around shadow-2xl">
         <button onclick="switchTab('grammar')" id="nav-btn-grammar" class="flex flex-col items-center space-y-1 text-neon transition">
             <i class="fa-solid fa-map text-lg"></i>
             <span class="text-[10px] font-semibold">Roadmap</span>
@@ -370,7 +370,7 @@
             { id: 41, name: "Hauptsätze verbinden (Position 1)", detail: "Deshalb, sonst, dann, danach" },
             { id: 42, name: "Nebensätze", detail: "Weil, dass und wenn" },
             { id: 43, name: "Positionsadverbien und Direktionaladverbien", detail: "Ich bin da. Kommst du auch dahin?" },
-            { id: 44, name: "Partikeln", detail: "What heißt das denn?" },
+            { id: 44, name: "Partikeln", detail: "Was heißt das denn?" },
             { id: 45, name: "Komposita", detail: "Kinderarzt oder Arztkinder?" },
             { id: 46, name: "Aus Wörtern neue Wörter machen", detail: "-chen, -lein, -er, -in, -ung" },
             { id: 47, name: "Zusammengesetzte Verben", detail: "Ich bin dann mal weg" },
@@ -409,14 +409,14 @@
             { id: 80, name: "Partizip 1 als Adjektiv", detail: "Singende Vögel und fliegende Fische" }
         ];
 
-        // 5 ta To'plam (PDF dagi 1-dars va boshqa darslar asosidagi so'zlar)
+        // 5 ta To'plam (PDF bo'yicha tayyor so'zlar)
         const VOCAB_PACKS = [
             {
                 packId: 1,
                 title: "1-To'plam: Unterricht 1 (Salomlashish)",
                 words: [
                     { de: "Alphabet", uz: "alifbo", icon: "fa-font" },
-                    { de: "Hallo", uz: "salom", icon: "fa-hand-wave" },
+                    { de: "Hallo", uz: "salom", icon: "fa-hand" },
                     { de: "Guten Morgen", uz: "xayrli tong", icon: "fa-sun" },
                     { de: "Guten Tag", uz: "xayrli kun", icon: "fa-cloud-sun" },
                     { de: "Guten Abend", uz: "xayrli oqshom", icon: "fa-moon" },
@@ -702,7 +702,7 @@
             const iconEl = document.getElementById('quiz-image-container').querySelector('i');
             iconEl.className = `fa-solid ${currentWord.icon} text-neon`;
 
-            const formatType = Math.floor(Math.random() * 4) + 1; // 4 xil test formati
+            const formatType = Math.floor(Math.random() * 4) + 1;
             const optionsContainer = document.getElementById('quiz-options-container');
             optionsContainer.innerHTML = '';
 
