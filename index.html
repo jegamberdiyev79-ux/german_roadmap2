@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="uz" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -38,12 +38,9 @@
         }
     </script>
 
-    <!-- Google Font: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
@@ -93,7 +90,6 @@
                     <p id="progress-subtitle" class="text-xs text-gray-400 mt-1">0 of 80 topics completed</p>
                 </div>
 
-                <!-- Circular Progress Bar -->
                 <div class="relative w-16 h-16 flex items-center justify-center">
                     <svg class="w-full h-full transform -rotate-90" viewBox="0 0 36 36">
                         <path class="text-darkbg-700" stroke-width="3.5" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
@@ -105,7 +101,6 @@
             <div class="absolute -right-8 -bottom-8 w-32 h-32 bg-neon/5 rounded-full blur-2xl pointer-events-none"></div>
         </div>
 
-        <!-- Section Header -->
         <div class="flex items-center justify-between pt-1">
             <h3 class="text-xs font-bold uppercase tracking-wider text-gray-400">Roadmap Topics (1-80)</h3>
             <span class="text-[11px] bg-darkbg-800 text-neon font-medium px-2 py-0.5 rounded-full border border-darkbg-700">
@@ -140,7 +135,19 @@
                 </div>
             </div>
 
-            <!-- Timer Widget -->
+            <!-- RICH LESSON CONTENT & VOCABULARY BOX -->
+            <div class="bg-darkbg-900 rounded-2xl p-4 border border-darkbg-700 space-y-2.5">
+                <h4 class="text-xs font-bold uppercase tracking-wider text-neon flex items-center gap-1.5">
+                    <i class="fa-solid fa-book-open"></i> Dars materiali va Lug'at
+                </h4>
+                <p id="lesson-desc" class="text-xs text-gray-300 leading-relaxed"></p>
+                <div class="border-t border-darkbg-700 pt-2 mt-2">
+                    <span class="text-[11px] font-semibold text-gray-400">Asosiy so'zlar:</span>
+                    <ul id="vocab-list" class="text-xs text-gray-300 space-y-1 mt-1 pl-4 list-disc"></ul>
+                </div>
+            </div>
+
+            <!-- 30-Minute Timer Widget -->
             <div class="bg-darkbg-900 rounded-2xl p-4 border border-darkbg-700 space-y-3">
                 <div class="flex items-center justify-between text-xs text-gray-400">
                     <span class="flex items-center gap-1.5 font-medium text-gray-300">
@@ -157,20 +164,20 @@
                     <div class="w-full bg-darkbg-700 rounded-full h-2 overflow-hidden">
                         <div id="timer-progress-bar" class="bg-neon h-full w-full transition-all duration-1000" style="width: 100%;"></div>
                     </div>
-                    <p class="text-[10px] text-gray-500 mt-1 text-center">Formada vazifani yuboring va "Mark as Completed" tugmasini bosing!</p>
+                    <p class="text-[10px] text-gray-500 mt-1 text-center">1. "Send homework" orqali vazifani yuboring. 2. So'ng "Mark as Completed" bosing.</p>
                 </div>
             </div>
 
-            <!-- Actions -->
+            <!-- Primary Actions (Strict Logic: Homework must be sent first) -->
             <div class="space-y-2 pt-1">
                 <button onclick="openGoogleFormHomework()" class="w-full py-3 bg-neon text-darkbg-900 font-bold rounded-xl shadow-lg hover:bg-neon-glow transition active:scale-[0.98] flex items-center justify-center space-x-2">
                     <i class="fa-paper-plane text-darkbg-900"></i>
                     <span>Send homework (Google Forms)</span>
                 </button>
 
-                <button id="btn-complete" onclick="markTopicComplete()" class="w-full py-3 bg-emerald-500 hover:bg-emerald-600 text-white font-bold rounded-xl shadow-lg transition active:scale-[0.98] flex items-center justify-center space-x-2">
+                <button id="btn-complete" onclick="markTopicComplete()" class="w-full py-3 bg-darkbg-700 text-gray-400 font-bold rounded-xl transition active:scale-[0.98] flex items-center justify-center space-x-2 cursor-not-allowed" disabled>
                     <i class="fa-solid fa-circle-check"></i>
-                    <span>Mark as Completed & Next Topic</span>
+                    <span>Mark as Completed (Vazifani yuboring)</span>
                 </button>
             </div>
 
@@ -193,7 +200,7 @@
                     <i class="fa-solid fa-triangle-exclamation"></i>
                 </div>
                 <h3 class="text-lg font-bold text-white">Vaqt tugadi! Penalty Drill</h3>
-                <p class="text-xs text-gray-400">30 daqiqa tugadi. Qaytadan ochish uchun 5 ta nemischa so'zni yozing.</p>
+                <p class="text-xs text-gray-400">30 daqiqa tugadi. Qaytadan ochish uchun 5 ta nemischa so'zni to'g'ri yozing.</p>
             </div>
 
             <div class="bg-darkbg-900 p-4 rounded-2xl border border-darkbg-700 text-center space-y-2">
@@ -234,369 +241,4 @@
             "Ich bin, du hast, er möchte – sein, haben, möchten",
             "Ich esse wenig, aber du isst viel – Unregelmäßige Verben",
             "Ich muss, ich kann, ich will – Modalverben",
-            "Kann ich oder muss ich? – Gebrauch der Modalverben",
-            "Ich kaufe im Supermarkt ein – Trennbare Verben",
-            "Helfen Sie mir! – Imperativ",
-            "Gestern habe ich gelernt – Perfekt mit haben",
-            "Er ist nach Hause gegangen – Perfekt mit sein",
-            "Ich hatte, er war – Präteritum von sein und haben",
-            "Es war einmal – Präteritum der regelmäßigen Verben",
-            "Er gab mir ein Buch – Präteritum der unregelmäßigen Verben",
-            "Ich werde lernen – Futur I",
-            "Ich wurde informiert – Passiv Präsens",
-            "Das Haus wurde gebaut – Passiv Präteritum",
-            "Wenn ich reich wäre... – Konjunktiv II (Wunsch)",
-            "Er sagte, er habe Zeit – Konjunktiv I (Indirekte Rede)",
-            "Ich habe mich gewaschen – Reflexive Verben",
-            "Wir kennen uns – Reziproke Verben",
-            "Ein Mann, eine Frau, ein Kind – Artikel (der, die, das)",
-            "Kein Mann, keine Frau – Negationsartikel",
-            "Mein Buch, dein Stift – Possessivartikel",
-            "Dieser Mann, dieses Buch – Demonstrativpronomen",
-            "Wer, was, wo, wann? – W-Fragen",
-            "Kommst du heute? – Ja/Nein-Fragen",
-            "Die Männer, die Frauen – Pluralformen",
-            "Der Hund des Mannes – Genitiv",
-            "Ich sehe den Hund – Akkusativ",
-            "Ich helfe dem Mann – Dativ",
-            "Den Tisch, dem Tisch – Kasusübersicht",
-            "Ein schöner Tag – Adjektivdeklination (bestimmt)",
-            "Schöner Tag, schönes Wetter – Adjektivdeklination (unbestimmt)",
-            "Kalter Kaffee – Adjektivdeklination (ohne Artikel)",
-            "Schnell, schneller, am schnellsten – Komparativ & Superlativ",
-            "So groß wie, größer als – Vergleiche",
-            "Ich, mich, mir – Pronomen im Kasus",
-            "Jemand, niemand, etwas – Indefinitpronomen",
-            "Der Mann, der dort steht – Relativpronomen",
-            "Das Buch, das ich lese – Relativsätze im Akkusativ",
-            "Aus, bei, mit, nach, seit, von, zu – Präpositionen mit Dativ",
-            "Durch, für, gegen, ohne, um – Präpositionen mit Akkusativ",
-            "An, auf, hinter, in, neben, über, unter, vor, zwischen – Wechselpräpositionen",
-            "Warten auf, denken an – Verben mit Präpositionen",
-            "Worauf wartest du? Darauf! – Pronominaladverbien",
-            "Heute, gestern, morgen – Temporaladverbien",
-            "Hier, dort, überall – Lokaladverbien",
-            "Deshalb, trotzdem – Kausal- und Konzessivadverbien",
-            "Sehr, ziemlich, fast – Gradadverbien",
-            "Ich komme, weil ich Zeit habe – Kausalsätze (weil, da)",
-            "Ich lerne Deutsch, um zu arbeiten – Finalssätze (um...zu)",
-            "Wenn es regnet, bleibe ich zu Hause – Konditionalsätze (wenn)",
-            "Obwohl es regnet, gehe ich spazieren – Konzessivsätze (obwohl)",
-            "Er sagte, dass er kommt – Dass-Sätze",
-            "Ich weiß nicht, ob er kommt – Indirekte Fragen (ob)",
-            "Bevor du gehst, räum auf – Temporalsätze (bevor, nachdem)",
-            "Seitdem ich hier wohne – Temporalsätze (seitdem)",
-            "Solange du lernst – Temporalsätze (solange)",
-            "Sobald er ankommt – Temporalsätze (sobald)",
-            "Je mehr, desto besser – Proportional-Sätze",
-            "Anstatt zu lernen, spielt er – Infinitiv mit zu",
-            "Ohne ein Wort zu sagen – Ohne...zu",
-            "Es ist wichtig, zu lernen – Infinitivkonstruktionen",
-            "Der lesende Mann – Partizip I als Adjektiv",
-            "Das geschriebene Buch – Partizip II als Adjektiv",
-            "Das zu lesende Buch – Partizipialattribute",
-            "Aufgrund des Wetters – Genitiv-Präpositionen (aufgrund)",
-            "Trotz des Regens – Genitiv-Präpositionen (trotz)",
-            "Während der Fahrt – Genitiv-Präpositionen (während)",
-            "Wegen des Staus – Genitiv-Präpositionen (wegen)",
-            "Weder...noch – Mehrteilige Konnektoren",
-            "Sowohl...als auch – Mehrteilige Konnektoren",
-            "Entweder...oder – Mehrteilige Konnektoren",
-            "Nicht nur...sondern auch – Mehrteilige Konnektoren",
-            "Zwar...aber – Mehrteilige Konnektoren",
-            "Ich habe verschlafen, weil... – Satzstellung Nebensatz",
-            "Deshalb gehe ich – Satzstellung Hauptsatz",
-            "Gestern bin ich gefahren – Inversion im Hauptsatz",
-            "Ich weiß, dass er morgen kommt – Komplexer Satzbau",
-            "Abschluss-Test & Zertifikat-Vorbereitung (A1-B1 Mastery)"
-        ];
-
-        const PENALTY_DRILL_VOCAB = [
-            { de: "Haus", en: "House / Uy" },
-            { de: "Wasser", en: "Water / Suv" },
-            { de: "Buch", en: "Book / Kitob" },
-            { de: "Lernen", en: "To learn / O'rganish" },
-            { de: "Zeit", en: "Time / Vaqt" }
-        ];
-
-        let appState = {
-            completedTopics: [],
-            activeTopicId: 1,
-            timerStartTime: null,
-            penaltyActive: false
-        };
-
-        let currentActiveTopic = null;
-        let timerInterval = null;
-        let penaltyStepIndex = 0;
-
-        window.addEventListener('DOMContentLoaded', () => {
-            loadStateFromStorage();
-            renderRoadmap();
-            updateProgressOverview();
-        });
-
-        function loadStateFromStorage() {
-            const savedState = localStorage.getItem('de_roadmap_app_state');
-            if (savedState) {
-                try { appState = JSON.parse(savedState); } catch (e) {}
-            } else {
-                saveStateToStorage();
-            }
-        }
-
-        function saveStateToStorage() {
-            localStorage.setItem('de_roadmap_app_state', JSON.stringify(appState));
-        }
-
-        function renderRoadmap() {
-            const container = document.getElementById('topics-list');
-            if (!container) return;
-            container.innerHTML = '';
-
-            RAW_TOPICS.forEach((title, index) => {
-                const topicId = index + 1;
-                const isCompleted = appState.completedTopics.includes(topicId);
-                const isUnlocked = topicId === 1 || appState.completedTopics.includes(topicId - 1);
-                
-                let sectionName = "Grammatik " + (Math.floor(index / 10) + 1);
-                if (index < 20) sectionName = "Verben 1";
-                else if (index < 40) sectionName = "Nomen & Artikel";
-                else if (index < 60) sectionName = "Präpositionen & Sätze";
-                else sectionName = "B1 Fortgeschritten";
-
-                const card = document.createElement('div');
-                card.className = `p-3.5 rounded-2xl border transition-all duration-200 flex items-center justify-between cursor-pointer ${
-                    isCompleted 
-                        ? 'bg-darkbg-800/60 border-emerald-500/30 text-gray-300' 
-                        : isUnlocked 
-                            ? 'bg-darkbg-800 border-neon/50 text-white hover:border-neon neon-glow' 
-                            : 'bg-darkbg-900/40 border-darkbg-800 text-gray-500 opacity-60 cursor-not-allowed'
-                }`;
-
-                card.onclick = () => {
-                    if (isUnlocked) {
-                        openTopicModal(topicId, title, sectionName, isCompleted);
-                    } else {
-                        showToast("Oldingi mavzuni tugatib, keyin ochasiz!");
-                    }
-                };
-
-                card.innerHTML = `
-                    <div class="flex items-center space-x-3.5 overflow-hidden">
-                        <div class="w-9 h-9 rounded-xl flex items-center justify-center font-bold text-sm shrink-0 ${
-                            isCompleted 
-                                ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30' 
-                                : isUnlocked 
-                                    ? 'bg-neon text-darkbg-900 font-extrabold' 
-                                    : 'bg-darkbg-700 text-gray-500'
-                        }">
-                            ${topicId}
-                        </div>
-                        <div class="truncate">
-                            <h4 class="text-sm font-semibold truncate ${isCompleted ? 'line-through text-gray-400' : 'text-white'}">
-                                ${title}
-                            </h4>
-                            <span class="text-[10px] text-gray-400 flex items-center gap-1 mt-0.5">
-                                <i class="fa-solid fa-layer-group text-[9px] text-neon"></i> ${sectionName}
-                            </span>
-                        </div>
-                    </div>
-                    <div class="shrink-0 ml-2">
-                        ${
-                            isCompleted 
-                                ? '<span class="text-[11px] bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-2.5 py-1 rounded-full font-semibold">Done</span>'
-                                : isUnlocked 
-                                    ? '<span class="text-[11px] bg-neon/20 text-neon border border-neon/40 px-2.5 py-1 rounded-full font-semibold">Start</span>'
-                                    : '<span class="text-[11px] bg-darkbg-700 text-gray-500 px-2.5 py-1 rounded-full font-semibold"><i class="fa-solid fa-lock text-[9px] mr-1"></i>Locked</span>'
-                        }
-                    </div>
-                `;
-
-                container.appendChild(card);
-            });
-        }
-
-        function openTopicModal(id, title, section, isCompleted) {
-            currentActiveTopic = { id, title, section, isCompleted };
-            
-            document.getElementById('modal-topic-num').innerText = `Topic ${id}`;
-            document.getElementById('modal-title').innerText = title;
-            document.getElementById('modal-section').innerText = section;
-
-            const statusBadge = document.getElementById('modal-status-badge');
-            const completeBtn = document.getElementById('btn-complete');
-
-            if (isCompleted) {
-                statusBadge.innerText = 'Completed';
-                statusBadge.className = 'text-xs px-2.5 py-1 rounded-md font-semibold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30';
-                completeBtn.classList.add('hidden');
-            } else {
-                statusBadge.innerText = 'In Progress';
-                statusBadge.className = 'text-xs px-2.5 py-1 rounded-md font-semibold bg-neon/20 text-neon border border-neon/30';
-                completeBtn.classList.remove('hidden');
-            }
-
-            document.getElementById('btn-prev-topic').disabled = id === 1;
-            document.getElementById('btn-next-topic').disabled = id === 80;
-
-            start30MinTimer(id);
-
-            const modal = document.getElementById('topic-modal');
-            const content = document.getElementById('modal-content');
-            modal.classList.remove('hidden');
-            setTimeout(() => {
-                content.classList.remove('translate-y-full');
-            }, 10);
-        }
-
-        function closeTopicModal() {
-            const modal = document.getElementById('topic-modal');
-            const content = document.getElementById('modal-content');
-            content.classList.add('translate-y-full');
-            setTimeout(() => {
-                modal.classList.add('hidden');
-            }, 300);
-            clearInterval(timerInterval);
-        }
-
-        function navTopic(direction) {
-            if (!currentActiveTopic) return;
-            const targetId = currentActiveTopic.id + direction;
-            if (targetId >= 1 && targetId <= 80) {
-                const isUnlocked = targetId === 1 || appState.completedTopics.includes(targetId - 1);
-                if (isUnlocked) {
-                    const title = RAW_TOPICS[targetId - 1];
-                    let sectionName = "Grammatik " + (Math.floor((targetId - 1) / 10) + 1);
-                    const isComp = appState.completedTopics.includes(targetId);
-                    openTopicModal(targetId, title, sectionName, isComp);
-                } else {
-                    showToast("Keyingi mavzu hali yopiq!");
-                }
-            }
-        }
-
-        function start30MinTimer(topicId) {
-            clearInterval(timerInterval);
-            const totalSeconds = 30 * 60;
-
-            if (!appState.timerStartTime || appState.activeTopicId !== topicId) {
-                appState.timerStartTime = Date.now();
-                appState.activeTopicId = topicId;
-                saveStateToStorage();
-            }
-
-            function updateTimerDisplay() {
-                const elapsedSeconds = Math.floor((Date.now() - appState.timerStartTime) / 1000);
-                const remainingSeconds = totalSeconds - elapsedSeconds;
-
-                if (remainingSeconds <= 0) {
-                    clearInterval(timerInterval);
-                    document.getElementById('timer-display').innerText = "00:00";
-                    document.getElementById('timer-progress-bar').style.width = "0%";
-                    triggerPenaltyDrill();
-                    return;
-                }
-
-                const mins = Math.floor(remainingSeconds / 60);
-                const secs = remainingSeconds % 60;
-                document.getElementById('timer-display').innerText = 
-                    `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
-
-                const percentage = (remainingSeconds / totalSeconds) * 100;
-                document.getElementById('timer-progress-bar').style.width = `${percentage}%`;
-            }
-
-            updateTimerDisplay();
-            timerInterval = setInterval(updateTimerDisplay, 1000);
-        }
-
-        function openGoogleFormHomework() {
-            if (!currentActiveTopic) return;
-            window.open(GOOGLE_FORM_URL, '_blank');
-            showToast("Google Form ochildi! Topshirib, Completed bosing.");
-        }
-
-        function markTopicComplete() {
-            if (!currentActiveTopic) return;
-            if (!appState.completedTopics.includes(currentActiveTopic.id)) {
-                appState.completedTopics.push(currentActiveTopic.id);
-                appState.timerStartTime = null;
-                saveStateToStorage();
-                renderRoadmap();
-                updateProgressOverview();
-                showToast(`Topic ${currentActiveTopic.id} bajarildi! 🎉`);
-                closeTopicModal();
-            }
-        }
-
-        function triggerPenaltyDrill() {
-            closeTopicModal();
-            penaltyStepIndex = 0;
-            document.getElementById('penalty-modal').classList.remove('hidden');
-            renderPenaltyCard();
-        }
-
-        function renderPenaltyCard() {
-            const currentVocab = PENALTY_DRILL_VOCAB[penaltyStepIndex];
-            document.getElementById('penalty-step').innerText = `Word ${penaltyStepIndex + 1} of 5`;
-            document.getElementById('penalty-german').innerText = currentVocab.de;
-            document.getElementById('penalty-translation').innerText = currentVocab.en;
-            document.getElementById('penalty-input').value = '';
-        }
-
-        function checkPenaltyAnswer() {
-            const inputVal = document.getElementById('penalty-input').value.trim().toLowerCase();
-            const correctVal = PENALTY_DRILL_VOCAB[penaltyStepIndex].de.toLowerCase();
-
-            if (inputVal === correctVal) {
-                penaltyStepIndex++;
-                if (penaltyStepIndex >= PENALTY_DRILL_VOCAB.length) {
-                    document.getElementById('penalty-modal').classList.add('hidden');
-                    appState.timerStartTime = Date.now();
-                    saveStateToStorage();
-                    showToast("Penalty bajarildi! Taymer tiklandi.");
-                } else {
-                    renderPenaltyCard();
-                }
-            } else {
-                showToast(`Noto'g'ri! To'g'ri so'z: ${PENALTY_DRILL_VOCAB[penaltyStepIndex].de}`);
-            }
-        }
-
-        function updateProgressOverview() {
-            const total = 80;
-            const count = appState.completedTopics.length;
-            const percent = Math.round((count / total) * 100);
-
-            document.getElementById('progress-percent').innerText = `${percent}%`;
-            document.getElementById('progress-subtitle').innerText = `${count} of ${total} topics completed`;
-            document.getElementById('circle-progress').setAttribute('stroke-dasharray', `${percent}, 100`);
-        }
-
-        function showToast(message) {
-            const toast = document.getElementById('toast');
-            document.getElementById('toast-text').innerText = message;
-            toast.classList.remove('opacity-0', 'pointer-events-none');
-            setTimeout(() => {
-                toast.classList.add('opacity-0', 'pointer-events-none');
-            }, 2500);
-        }
-
-        function resetProgressConfirm() {
-            if (confirm("Progressni qaytadan 0% qilmoqchimisiz?")) {
-                appState = {
-                    completedTopics: [],
-                    activeTopicId: 1,
-                    timerStartTime: null,
-                    penaltyActive: false
-                };
-                saveStateToStorage();
-                renderRoadmap();
-                updateProgressOverview();
-                showToast("Progress nollashtirildi.");
-            }
-        }
-    </script>
-</body>
-</html>
+            "Kann ich oder muss ich? – Gebrauch der Modalverben
